@@ -5,7 +5,7 @@
 .modern .tip {
   font-size: 80%;
   font-style: italic;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 .modern .noselect {
   -webkit-touch-callout: none;
@@ -55,9 +55,24 @@
   font-size: 125%;
   font-weight: 300;
 }
-.modern ul {
+.modern ul, .modern ol {
   margin: 1em 0;
   padding: 0 0 0 2em;
+}
+.modern ul {
+  list-style: none;
+}
+.modern ul li {
+  position: relative;
+}
+.modern ul li::before {
+  content: "";
+  display: block;
+  width: 0.5em;
+  height: 0.5em;
+  position: absolute;
+  top: 0.5em;
+  left: -1em;
 }
 .modern a {
   transition-property: color;
@@ -77,8 +92,13 @@
 .modern button,
 .modern input[type=button],
 .modern input[type=submit] {
-  border-width: 0;
-  padding: 3px 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 1.75em;
+  padding: 0 1.5em;
+  border: 0;
+  margin: 0.125em 0;
   outline: 0;
   font-family: inherit;
   font-size: inherit;
@@ -86,16 +106,6 @@
   transition-property: background-color, color, opacity;
   transition-duration: 100ms;
   transition-timing-function: linear;
-}
-.modern button:disabled,
-.modern input[type=button]:disabled,
-.modern input[type=submit]:disabled {
-  opacity: 0.3;
-}
-.modern button.primary,
-.modern input[type=button].primary,
-.modern input[type=submit].primary {
-  font-weight: 600;
 }
 .modern button:enabled:hover, .modern button:enabled:focus,
 .modern input[type=button]:enabled:hover,
@@ -109,23 +119,32 @@
 .modern input[type=submit]:enabled:active {
   transition-duration: 0ms;
 }
+.modern button:disabled,
+.modern input[type=button]:disabled,
+.modern input[type=submit]:disabled {
+  opacity: 0.3;
+}
+.modern button.primary,
+.modern input[type=button].primary,
+.modern input[type=submit].primary {
+  font-weight: 600;
+}
 .modern button.secondary,
 .modern input[type=button].secondary,
 .modern input[type=submit].secondary {
-  border-width: 1px;
-  padding: 2px 14px;
+  border-width: 0.0625em;
   border-style: solid;
-}
-.modern input:-moz-read-only,
-.modern input:read-only {
-  background-color: transparent;
 }
 .modern input[type=text],
 .modern textarea {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 1.75em;
+  padding: 0 0.5em;
   border: 0;
+  margin: 0.125em 0;
   outline: 0;
-  margin: 0;
-  padding: 3px 5px;
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
@@ -143,9 +162,21 @@
   color: inherit;
   opacity: 0.7;
 }
+.modern input[type=text]:-moz-read-only,
+.modern textarea:-moz-read-only {
+  background-color: transparent;
+}
+.modern input[type=text]:read-only,
+.modern textarea:read-only {
+  background-color: transparent;
+}
 .modern input[type=checkbox],
 .modern input[type=radio] {
   display: none;
+}
+.modern input[type=checkbox] + label,
+.modern input[type=radio] + label {
+  margin: 0.125em 0;
 }
 .modern input[type=checkbox] + label > .check,
 .modern input[type=radio] + label > .check {
@@ -154,42 +185,35 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  margin: 0 5px;
+  margin: 0 0.5em;
   transition-property: background-color, border, opacity;
   transition-duration: 100ms;
   transition-timing-function: linear;
+  border-style: solid;
+  border-width: 0;
 }
 .modern input[type=checkbox] + label > .check.small,
 .modern input[type=radio] + label > .check.small {
-  width: 12px;
-  height: 12px;
-  top: 1px;
+  width: 0.75em;
+  height: 0.75em;
+  top: 0;
 }
 .modern input[type=checkbox] + label > .check, .modern input[type=checkbox] + label > .check.medium,
 .modern input[type=radio] + label > .check,
 .modern input[type=radio] + label > .check.medium {
-  width: 16px;
-  height: 16px;
-  top: 2px;
+  width: 1em;
+  height: 1em;
+  top: 0.15em;
 }
 .modern input[type=checkbox] + label > .check.large,
 .modern input[type=radio] + label > .check.large {
-  width: 20px;
-  height: 20px;
-  top: 4px;
-}
-.modern input[type=checkbox]:disabled + label,
-.modern input[type=radio]:disabled + label {
-  opacity: 0.3;
-}
-.modern input[type=checkbox] + label > .check,
-.modern input[type=radio] + label > .check {
-  border-style: solid;
-  border-width: 0;
+  width: 1.25em;
+  height: 1.25em;
+  top: 0.25em;
 }
 .modern input[type=checkbox]:checked + label > .check,
 .modern input[type=radio]:checked + label > .check {
-  border-width: 3px;
+  border-width: 0.2em;
 }
 .modern input[type=checkbox]:enabled + label:hover > .check, .modern input[type=checkbox]:enabled:checked + label:hover > .check,
 .modern input[type=radio]:enabled + label:hover > .check,
@@ -201,22 +225,37 @@
 .modern input[type=radio]:enabled:checked:active + label > .check {
   transition-duration: 0ms;
 }
+.modern input[type=checkbox]:disabled + label,
+.modern input[type=radio]:disabled + label {
+  opacity: 0.3;
+}
 .modern input[type=radio] + label > .check.small {
-  border-radius: 6px;
+  border-radius: 0.375em;
 }
 .modern input[type=radio] + label > .check, .modern input[type=radio] + label > .check.medium {
-  border-radius: 8px;
+  border-radius: 0.5em;
 }
 .modern input[type=radio] + label > .check.large {
-  border-radius: 10px;
+  border-radius: 0.625em;
 }
 .modern select {
   outline: 0;
-  padding: 1px 2px;
-  border-width: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 1.75em;
+  padding: 0 0.5em;
+  padding-right: 2em;
+  border-width: 0.0625em;
   border-style: solid;
   font-family: inherit;
   font-size: inherit;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-position: calc(100% - 1em) 54%, calc(100% - 0.5em) 54%;
+  background-size: 0.5em 0.5em, 0.5em 0.5em;
+  background-repeat: no-repeat;
 }
 .modern select:disabled {
   opacity: 0.3;
@@ -224,6 +263,9 @@
 .modern, .modern .light, .modern.light {
   background: #f0f0f0;
   color: #444444;
+}
+.modern ul li::before, .modern .light ul li::before, .modern.light ul li::before {
+  background-color: #444444;
 }
 .modern a, .modern .light a, .modern.light a {
   color: #919191;
@@ -360,6 +402,13 @@
   border-color: #d0d0d0;
   background-color: #f0f0f0;
   color: #444444;
+  background-image: linear-gradient(45deg, transparent 50%, #444444 50%, #444444 75%, transparent 75%), linear-gradient(135deg, transparent 25%, #444444 25%, #444444 50%, transparent 50%);
+}
+.modern select:enabled:hover, .modern .light select:enabled:hover, .modern.light select:enabled:hover {
+  background-color: #d0d0d0;
+}
+.modern select:enabled option, .modern .light select:enabled option, .modern.light select:enabled option {
+  background-color: #f0f0f0;
 }
 
 /*# sourceMappingURL=modern.css.map */

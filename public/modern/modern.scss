@@ -3,11 +3,21 @@
 $fade-in: 50ms;
 $fade-out: 100ms;
 $disabled-opacity: 0.3;
+$control-border: 0.0625em;
+$control-margin: 0.125em;
+$textbox-padding: 0.5em;
+$button-padding: 1.5em;
 
 @mixin border-box {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+@mixin control-size($padding-x) {
+  @include border-box();
+  height: 1.75em;
+  padding: 0 $padding-x;
 }
 
 .modern {
@@ -17,7 +27,7 @@ $disabled-opacity: 0.3;
   .tip {
     font-size: 80%;
     font-style: italic;
-    opacity: 0.5;
+    opacity: 0.7;
   }
 
   .noselect {
@@ -80,9 +90,27 @@ $disabled-opacity: 0.3;
     font-weight: 300;
   }
 
-  ul {
+  ul, ol {
     margin: 1em 0;
     padding: 0 0 0 2em;
+  }
+
+  ul {
+    list-style: none;
+
+    li {
+      position: relative;
+
+      &::before {
+        content: '';
+        display: block;
+        width: 0.5em;
+        height: 0.5em;
+        position: absolute;
+        top: 0.5em;
+        left: -1em;
+      }
+    }
   }
 
   a {
@@ -108,12 +136,9 @@ $disabled-opacity: 0.3;
   button,
   input[type="button"],
   input[type="submit"] {
-    @mixin padding-with-border($border) {
-      border-width: $border;
-      padding: 3px - $border 15px - $border;
-    }
-
-    @include padding-with-border(0);
+    @include control-size($button-padding);
+    border: 0;
+    margin: $control-margin 0;
     outline: 0;
     font-family: inherit;
     font-size: inherit;
@@ -121,6 +146,17 @@ $disabled-opacity: 0.3;
     transition-property: background-color, color, opacity;
     transition-duration: $fade-out;
     transition-timing-function: linear;
+
+    &:enabled {
+      &:hover,
+      &:focus {
+        transition-duration: $fade-in;
+      }
+  
+      &:active {
+        transition-duration: 0ms;
+      }
+    }
 
     &:disabled {
       opacity: $disabled-opacity;
@@ -130,32 +166,18 @@ $disabled-opacity: 0.3;
       font-weight: 600;
     }
 
-    &:enabled:hover,
-    &:enabled:focus {
-      transition-duration: $fade-in;
-    }
-
-    &:enabled:active {
-      transition-duration: 0ms;
-    }
-
     &.secondary {
-      @include padding-with-border(1px);
+      border-width: $control-border;
       border-style: solid;
     }
   }
 
-  input:-moz-read-only,
-  input:read-only {
-    background-color: transparent;
-  }
-
   input[type="text"],
   textarea {
+    @include control-size($textbox-padding);
     border: 0;
+    margin: $control-margin 0;
     outline: 0;
-    margin: 0;
-    padding: 3px 5px;
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
@@ -172,87 +194,111 @@ $disabled-opacity: 0.3;
       color: inherit;
       opacity: 0.7;
     }
+
+    // prefix selectors must be separate rulesets
+    &:-moz-read-only {
+      background-color: transparent;
+    }
+    &:read-only {
+      background-color: transparent;
+    }
   }
 
   input[type="checkbox"],
   input[type="radio"] {
     display: none;
 
-    & + label > .check {
-      display: inline-block;
-      position: relative;
-      @include border-box();
-      margin: 0 5px;
-      transition-property: background-color, border, opacity;
-      transition-duration: $fade-out;
-      transition-timing-function: linear;
+    & + label {
+      margin: $control-margin 0;
+
+      & > .check {
+        display: inline-block;
+        position: relative;
+        @include border-box();
+        margin: 0 0.5em;
+        transition-property: background-color, border, opacity;
+        transition-duration: $fade-out;
+        transition-timing-function: linear;
+        
+        border-style: solid;
+        border-width: 0;
+
+        &.small {
+          width: 0.75em;
+          height: 0.75em;
+          top: 0;
+        }
+    
+        &, &.medium {
+          width: 1em;
+          height: 1em;
+          top: 0.15em;
+        }
+    
+        &.large {
+          width: 1.25em;
+          height: 1.25em;
+          top: 0.25em;
+        }
+      }
+    }
+    
+    &:checked + label > .check {
+      border-width: 0.2em;
     }
 
-    & + label > .check.small {
-      width: 12px;
-      height: 12px;
-      top: 1px;
-    }
-
-    & + label > .check,
-    & + label > .check.medium {
-      width: 16px;
-      height: 16px;
-      top: 2px;
-    }
-
-    & + label > .check.large {
-      width: 20px;
-      height: 20px;
-      top: 4px;
+    &:enabled {
+      & + label:hover > .check,
+      &:checked + label:hover > .check {
+        transition-duration: $fade-in;
+      }
+  
+      &:active + label > .check,
+      &:checked:active + label > .check {
+        transition-duration: 0ms;
+      }
     }
 
     &:disabled + label {
       opacity: $disabled-opacity;
     }
-
-    & + label > .check {
-      border-style: solid;
-      border-width: 0;
-    }
-
-    &:checked + label > .check {
-      border-width: 3px;
-    }
-
-    &:enabled + label:hover > .check,
-    &:enabled:checked + label:hover > .check {
-      transition-duration: $fade-in;
-    }
-
-    &:enabled:active + label > .check,
-    &:enabled:checked:active + label > .check {
-      transition-duration: 0ms;
-    }
   }
 
   input[type="radio"] {
-    & + label > .check.small {
-      border-radius: 6px;
-    }
-
-    & + label > .check,
-    & + label > .check.medium {
-      border-radius: 8px;
-    }
-
-    & + label > .check.large {
-      border-radius: 10px;
+    & + label {
+      & > .check.small {
+        border-radius: 0.375em;
+      }
+  
+      & > .check,
+      & > .check.medium {
+        border-radius: 0.5em;
+      }
+  
+      & > .check.large {
+        border-radius: 0.625em;
+      }
     }
   }
 
   select {
     outline: 0;
-    padding: 1px 2px;
-    border-width: 1px;
+    @include control-size($textbox-padding);
+    padding-right: 2em;
+    border-width: $control-border;
     border-style: solid;
     font-family: inherit;
     font-size: inherit;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-position:
+      calc(100% - 1em) 54%,
+      calc(100% - 0.5em) 54%;
+    background-size:
+      0.5em 0.5em,
+      0.5em 0.5em;
+    background-repeat: no-repeat;
 
     &:disabled {
       opacity: $disabled-opacity;

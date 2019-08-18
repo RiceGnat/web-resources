@@ -134,6 +134,15 @@
   border-color: #222222;
   background-color: #444444;
   color: #d0d0d0;
+  background-image: linear-gradient(45deg, transparent 50%, #d0d0d0 50%, #d0d0d0 75%, transparent 75%), linear-gradient(135deg, transparent 25%, #d0d0d0 25%, #d0d0d0 50%, transparent 50%);
+}
+.modern.dark select:enabled:hover,
+.modern .dark select:enabled:hover {
+  background-color: #222222;
+}
+.modern.dark select:enabled option,
+.modern .dark select:enabled option {
+  background-color: #444444;
 }
 .modern.dark a,
 .modern .dark a {

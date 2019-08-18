@@ -10,11 +10,7 @@ and add the `modern` class to the desired root element.
 ```html
 <body class="modern">
 ```
-The LESS stylesheet may also be linked directly if using the client-side LESS library.
-```html
-<link rel="stylesheet/less" type="text/css" href="http://ricegnat.com/resources/modern/modern.less" />
-<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js" ></script>
-```
+SCSS source stylesheets are also provided.
 ### Checkboxes and radio buttons
 Checkboxes and radio buttons require the following structure.
 ```html

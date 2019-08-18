@@ -25,22 +25,24 @@ $on-secondary: $primary-alt !default;
   button,
   input[type="button"],
   input[type="submit"] {
-    &:enabled:hover,
-    &:enabled:focus {
-      background-color: lighten($primary-alt, 20%);
+    &:enabled {
+      &:hover,
+      &:focus {
+        background-color: lighten($primary-alt, 20%);
+      }
+  
+      &:active {
+        background-color: lighten($primary-alt, 5%);
+      }
     }
 
-    &:enabled:active {
-      background-color: lighten($primary-alt, 5%);
-    }
-
-    &.primary {
-      &:enabled:hover,
-      &:enabled:focus {
+    &.primary:enabled {
+      &:hover,
+      &:focus {
         background-color: darken($secondary, 15%);
       }
 
-      &:enabled:active {
+      &:active {
         background-color: darken($secondary, 40%);
       }
     }
@@ -48,20 +50,22 @@ $on-secondary: $primary-alt !default;
 
   input[type="checkbox"],
   input[type="radio"] {
-    &:enabled + label:hover > .check {
-      background-color: lighten($primary-alt, 20%);
-    }
-
-    &:enabled:active + label > .check {
-      background-color: darken($secondary, 40%);
-    }
-
-    &:enabled:checked + label:hover > .check {
-      background-color: darken($secondary, 15%);
-    }
-
-    &:enabled:checked:active + label > .check {
-      background-color: lighten($primary-alt, 15%);
+    &:enabled {
+      & + label:hover > .check {
+        background-color: lighten($primary-alt, 20%);
+      }
+  
+      &:active + label > .check {
+        background-color: darken($secondary, 40%);
+      }
+  
+      &:checked + label:hover > .check {
+        background-color: darken($secondary, 15%);
+      }
+  
+      &:checked:active + label > .check {
+        background-color: lighten($primary-alt, 15%);
+      }
     }
   }
 }

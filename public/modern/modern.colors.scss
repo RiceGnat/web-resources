@@ -8,6 +8,10 @@ $on-secondary: #ffffff !default;
   background: $primary;
   color: $on-primary;
 
+  ul li::before {
+    background-color: $on-primary;
+  }
+
   a {
     color: lighten($on-primary, 30%);
 
@@ -27,27 +31,27 @@ $on-secondary: #ffffff !default;
     background-color: $primary-alt;
     color: inherit;
 
-    &:enabled:hover,
-    &:enabled:focus {
-      background-color: darken($primary-alt, 10%);
-    }
-
-    &:enabled:active {
-      background-color: darken($primary-alt, 30%);
-    }
-
-    &.primary {
-      &:enabled {
-        background-color: $secondary;
-        color: $on-secondary;
+    &:enabled {
+      &:hover,
+      &:focus {
+        background-color: darken($primary-alt, 10%);
       }
+  
+      &:active {
+        background-color: darken($primary-alt, 30%);
+      }
+    }
 
-      &:enabled:hover,
-      &:enabled:focus {
+    &.primary:enabled {
+      background-color: $secondary;
+      color: $on-secondary;
+
+      &:hover,
+      &:focus {
         background-color: lighten($secondary, 15%);
       }
 
-      &:enabled:active {
+      &:active {
         background-color: lighten($secondary, 40%);
       }
     }
@@ -75,20 +79,22 @@ $on-secondary: #ffffff !default;
       background-color: $secondary;
     }
 
-    &:enabled + label:hover > .check {
-      background-color: darken($primary-alt, 10%);
-    }
-
-    &:enabled:active + label > .check {
-      background-color: darken($primary-alt, 30%);
-    }
-
-    &:enabled:checked + label:hover > .check {
-      background-color: lighten($secondary, 15%);
-    }
-
-    &:enabled:checked:active + label > .check {
-      background-color: lighten($secondary, 40%);
+    &:enabled {
+      & + label:hover > .check {
+        background-color: darken($primary-alt, 10%);
+      }
+  
+      &:active + label > .check {
+        background-color: darken($primary-alt, 30%);
+      }
+  
+      &:checked + label:hover > .check {
+        background-color: lighten($secondary, 15%);
+      }
+  
+      &:checked:active + label > .check {
+        background-color: lighten($secondary, 40%);
+      }
     }
   }
     
@@ -96,5 +102,18 @@ $on-secondary: #ffffff !default;
     border-color: $primary-alt;
     background-color: $primary;
     color: $on-primary;
+    background-image:
+      linear-gradient(45deg, transparent 50%, $on-primary 50%, $on-primary 75%, transparent 75%),
+      linear-gradient(135deg, transparent 25%, $on-primary 25%, $on-primary 50%, transparent 50%);
+    
+    &:enabled {
+      &:hover {
+        background-color: $primary-alt;
+      }
+
+      option {
+        background-color: $primary;
+      }
+    }
   }
 }
