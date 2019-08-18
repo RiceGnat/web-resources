@@ -3,6 +3,10 @@
   background: #444444;
   color: #d0d0d0;
 }
+.modern.dark ul li::before,
+.modern .dark ul li::before {
+  background-color: #d0d0d0;
+}
 .modern.dark a,
 .modern .dark a {
   color: white;
