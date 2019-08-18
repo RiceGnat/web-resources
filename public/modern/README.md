@@ -1,10 +1,10 @@
 # "Modern" visual style
-Hosted at http://ricegnat.com/resources/modern
+Hosted at http://cdn.ahri.moe/modern
 
 ## Usage
 Simply link the stylesheet in the document's `<head>` 
 ```html
-<link rel="stylesheet" href="http://ricegnat.com/resources/modern/modern.css" />
+<link rel="stylesheet" href="http://cdn.ahri.moe/modern/modern.css" />
 ```
 and add the `modern` class to the desired root element.
 ```html
@@ -44,8 +44,8 @@ The `tip` class can be used for tips or reminder text.
 ## Extension sheets
 Link extension sheets as desired.
 ```html
-<link rel="stylesheet" href="http://ricegnat.com/resources/modern/modern.css" />
-<link rel="stylesheet" href="http://ricegnat.com/resources/modern/modern.dark.css" />
+<link rel="stylesheet" href="http://cdn.ahri.moe/modern/modern.css" />
+<link rel="stylesheet" href="http://cdn.ahri.moe/modern/modern.dark.css" />
 ```
 Note that the base `modern.css` sheet is required.
 ### Dark theme
