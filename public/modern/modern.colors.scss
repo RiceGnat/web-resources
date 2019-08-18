@@ -1,0 +1,100 @@
+$primary: #f0f0f0 !default;
+$primary-alt: #d0d0d0 !default;
+$secondary: #444444 !default;
+$on-primary: $secondary !default;
+$on-secondary: #ffffff !default;
+
+@mixin modern-colors {
+  background: $primary;
+  color: $on-primary;
+
+  a {
+    color: lighten($on-primary, 30%);
+
+    &:hover,
+    &:focus {
+      color: lighten($on-primary, 50%);
+    }
+
+    &:active {
+      color: lighten($on-primary, 20%);
+    }
+  }
+    
+  button,
+  input[type="button"],
+  input[type="submit"] {
+    background-color: $primary-alt;
+    color: inherit;
+
+    &:enabled:hover,
+    &:enabled:focus {
+      background-color: darken($primary-alt, 10%);
+    }
+
+    &:enabled:active {
+      background-color: darken($primary-alt, 30%);
+    }
+
+    &.primary {
+      &:enabled {
+        background-color: $secondary;
+        color: $on-secondary;
+      }
+
+      &:enabled:hover,
+      &:enabled:focus {
+        background-color: lighten($secondary, 15%);
+      }
+
+      &:enabled:active {
+        background-color: lighten($secondary, 40%);
+      }
+    }
+
+    &.secondary {
+      border-color: $on-primary;
+      background-color: $primary;
+    }
+  }
+
+  input[type="text"],
+  textarea {
+    background-color: $primary-alt;
+    color: inherit;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    & + label > .check {
+      border-color: $primary-alt;
+      background-color: $primary-alt;
+    }
+
+    &:checked + label > .check {
+      background-color: $secondary;
+    }
+
+    &:enabled + label:hover > .check {
+      background-color: darken($primary-alt, 10%);
+    }
+
+    &:enabled:active + label > .check {
+      background-color: darken($primary-alt, 30%);
+    }
+
+    &:enabled:checked + label:hover > .check {
+      background-color: lighten($secondary, 15%);
+    }
+
+    &:enabled:checked:active + label > .check {
+      background-color: lighten($secondary, 40%);
+    }
+  }
+    
+  select {
+    border-color: $primary-alt;
+    background-color: $primary;
+    color: $on-primary;
+  }
+}

@@ -1,0 +1,67 @@
+$primary: #444444 !default;
+$primary-alt: #222222 !default;
+$secondary: #d0d0d0 !default;
+$on-secondary: $primary-alt !default;
+
+@import "modern.colors";
+
+.modern.dark,
+.modern .dark {
+  @include modern-colors;
+
+  a {
+    color: darken($on-primary, 25%);
+
+    &:hover,
+    &:focus {
+      color: darken($on-primary, 40%);
+    }
+
+    &:active {
+      color: darken($on-primary, 5%);
+    }
+  }
+
+  button,
+  input[type="button"],
+  input[type="submit"] {
+    &:enabled:hover,
+    &:enabled:focus {
+      background-color: lighten($primary-alt, 20%);
+    }
+
+    &:enabled:active {
+      background-color: lighten($primary-alt, 5%);
+    }
+
+    &.primary {
+      &:enabled:hover,
+      &:enabled:focus {
+        background-color: darken($secondary, 15%);
+      }
+
+      &:enabled:active {
+        background-color: darken($secondary, 40%);
+      }
+    }
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    &:enabled + label:hover > .check {
+      background-color: lighten($primary-alt, 20%);
+    }
+
+    &:enabled:active + label > .check {
+      background-color: darken($secondary, 40%);
+    }
+
+    &:enabled:checked + label:hover > .check {
+      background-color: darken($secondary, 15%);
+    }
+
+    &:enabled:checked:active + label > .check {
+      background-color: lighten($primary-alt, 15%);
+    }
+  }
+}

@@ -1,8 +1,6 @@
 .modern {
   font-family: "Segoe UI", sans-serif;
   font-weight: 400;
-  background: #f0f0f0;
-  color: #444444;
 }
 .modern .tip {
   font-size: 80%;
@@ -18,6 +16,9 @@
   -o-user-select: none;
   user-select: none;
 }
+.modern .block {
+  display: block;
+}
 .modern .inline {
   display: inline;
 }
@@ -27,167 +28,127 @@
 .modern b {
   font-weight: 600;
 }
-.modern h1,
-.modern h2,
-.modern h3,
-.modern h4,
-.modern h5,
-.modern h6 {
+.modern h1, .modern h2, .modern h3, .modern h4, .modern h5, .modern h6 {
   margin: 0 0 0.5em 0;
 }
-.modern h1,
-.modern .h1 {
+.modern h1, .modern .h1 {
   font-size: 350%;
   font-weight: 200;
 }
-.modern h2,
-.modern .h2 {
+.modern h2, .modern .h2 {
   font-size: 300%;
   font-weight: 300;
 }
-.modern h3,
-.modern .h3 {
+.modern h3, .modern .h3 {
   font-size: 250%;
   font-weight: 300;
 }
-.modern h4,
-.modern .h4 {
+.modern h4, .modern .h4 {
   font-size: 200%;
   font-weight: 300;
 }
-.modern h5,
-.modern .h5 {
+.modern h5, .modern .h5 {
   font-size: 150%;
   font-weight: 300;
 }
-.modern h6,
-.modern .h6 {
+.modern h6, .modern .h6 {
   font-size: 125%;
   font-weight: 300;
 }
+.modern ul {
+  margin: 1em 0;
+  padding: 0 0 0 2em;
+}
 .modern a {
-  color: #919191;
-  text-decoration: none;
   transition-property: color;
   transition-duration: 100ms;
   transition-timing-function: linear;
 }
-.modern a:hover,
-.modern a:focus {
+.modern a:hover, .modern a:focus {
   outline: 0;
-  color: #c3c3c3;
   transition-duration: 50ms;
 }
 .modern a:active {
-  color: #777777;
   transition-duration: 0ms;
 }
 .modern *::-moz-focus-inner {
   border: 0;
 }
 .modern button,
-.modern input[type="button"],
-.modern input[type="submit"] {
-  border: 0;
+.modern input[type=button],
+.modern input[type=submit] {
+  border-width: 0;
+  padding: 3px 15px;
   outline: 0;
-  padding: 2px 15px 2px;
   font-family: inherit;
   font-size: inherit;
-  font-weight: 400;
-  background-color: #d0d0d0;
-  color: inherit;
+  font-weight: 600;
   transition-property: background-color, color, opacity;
   transition-duration: 100ms;
   transition-timing-function: linear;
 }
 .modern button:disabled,
-.modern input[type="button"]:disabled,
-.modern input[type="submit"]:disabled {
+.modern input[type=button]:disabled,
+.modern input[type=submit]:disabled {
   opacity: 0.3;
 }
-.modern button.action,
-.modern input[type="button"].action,
-.modern input[type="submit"].action {
+.modern button.primary,
+.modern input[type=button].primary,
+.modern input[type=submit].primary {
   font-weight: 600;
 }
-.modern button:enabled:hover,
-.modern input[type="button"]:enabled:hover,
-.modern input[type="submit"]:enabled:hover,
-.modern button:enabled:focus,
-.modern input[type="button"]:enabled:focus,
-.modern input[type="submit"]:enabled:focus {
-  background-color: #b7b7b7;
+.modern button:enabled:hover, .modern button:enabled:focus,
+.modern input[type=button]:enabled:hover,
+.modern input[type=button]:enabled:focus,
+.modern input[type=submit]:enabled:hover,
+.modern input[type=submit]:enabled:focus {
   transition-duration: 50ms;
 }
 .modern button:enabled:active,
-.modern input[type="button"]:enabled:active,
-.modern input[type="submit"]:enabled:active {
-  background-color: #848484;
+.modern input[type=button]:enabled:active,
+.modern input[type=submit]:enabled:active {
   transition-duration: 0ms;
 }
-.modern button.action:enabled,
-.modern input[type="button"].action:enabled,
-.modern input[type="submit"].action:enabled {
-  background-color: #444444;
-  color: #ffffff;
-}
-.modern button.action:enabled:hover,
-.modern input[type="button"].action:enabled:hover,
-.modern input[type="submit"].action:enabled:hover,
-.modern button.action:enabled:focus,
-.modern input[type="button"].action:enabled:focus,
-.modern input[type="submit"].action:enabled:focus {
-  background-color: #6a6a6a;
-}
-.modern button.action:enabled:active,
-.modern input[type="button"].action:enabled:active,
-.modern input[type="submit"].action:enabled:active {
-  background-color: #aaaaaa;
+.modern button.secondary,
+.modern input[type=button].secondary,
+.modern input[type=submit].secondary {
+  border-width: 1px;
+  padding: 2px 14px;
+  border-style: solid;
 }
 .modern input:-moz-read-only,
 .modern input:read-only {
   background-color: transparent;
 }
-.modern input[type="text"],
+.modern input[type=text],
 .modern textarea {
   border: 0;
   outline: 0;
   margin: 0;
-  padding: 2px 5px;
+  padding: 3px 5px;
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
-  background-color: #d0d0d0;
-  color: inherit;
   transition-property: background-color, color, opacity;
   transition-duration: 100ms;
   transition-timing-function: linear;
 }
-.modern input[type="text"]:disabled,
+.modern input[type=text]:disabled,
 .modern textarea:disabled {
   opacity: 0.3;
 }
-.modern input[type="text"]::-moz-placeholder,
-.modern textarea::-moz-placeholder {
-  color: #919191;
+.modern input[type=text]::placeholder,
+.modern textarea::placeholder {
   font-style: italic;
+  color: inherit;
+  opacity: 0.7;
 }
-.modern input[type="text"]:-ms-input-placeholder,
-.modern textarea:-ms-input-placeholder {
-  font-style: italic;
-  color: #919191;
-}
-.modern input[type="text"]::-webkit-input-placeholder,
-.modern textarea::-webkit-input-placeholder {
-  font-style: italic;
-  color: #919191;
-}
-.modern input[type="checkbox"],
-.modern input[type="radio"] {
+.modern input[type=checkbox],
+.modern input[type=radio] {
   display: none;
 }
-.modern input[type="checkbox"] + label > .check,
-.modern input[type="radio"] + label > .check {
+.modern input[type=checkbox] + label > .check,
+.modern input[type=radio] + label > .check {
   display: inline-block;
   position: relative;
   -webkit-box-sizing: border-box;
@@ -198,83 +159,207 @@
   transition-duration: 100ms;
   transition-timing-function: linear;
 }
-.modern input[type="checkbox"] + label > .check.small,
-.modern input[type="radio"] + label > .check.small {
+.modern input[type=checkbox] + label > .check.small,
+.modern input[type=radio] + label > .check.small {
   width: 12px;
   height: 12px;
   top: 1px;
 }
-.modern input[type="checkbox"] + label > .check,
-.modern input[type="radio"] + label > .check,
-.modern input[type="checkbox"] + label > .check.medium,
-.modern input[type="radio"] + label > .check.medium {
+.modern input[type=checkbox] + label > .check, .modern input[type=checkbox] + label > .check.medium,
+.modern input[type=radio] + label > .check,
+.modern input[type=radio] + label > .check.medium {
   width: 16px;
   height: 16px;
   top: 2px;
 }
-.modern input[type="checkbox"] + label > .check.large,
-.modern input[type="radio"] + label > .check.large {
+.modern input[type=checkbox] + label > .check.large,
+.modern input[type=radio] + label > .check.large {
   width: 20px;
   height: 20px;
   top: 4px;
 }
-.modern input[type="checkbox"]:disabled + label,
-.modern input[type="radio"]:disabled + label {
+.modern input[type=checkbox]:disabled + label,
+.modern input[type=radio]:disabled + label {
   opacity: 0.3;
 }
-.modern input[type="checkbox"] + label > .check,
-.modern input[type="radio"] + label > .check {
+.modern input[type=checkbox] + label > .check,
+.modern input[type=radio] + label > .check {
   border-style: solid;
-  border-color: #d0d0d0;
   border-width: 0;
-  background-color: #d0d0d0;
 }
-.modern input[type="checkbox"]:checked + label > .check,
-.modern input[type="radio"]:checked + label > .check {
+.modern input[type=checkbox]:checked + label > .check,
+.modern input[type=radio]:checked + label > .check {
   border-width: 3px;
-  background-color: #444444;
 }
-.modern input[type="checkbox"]:enabled + label:hover > .check,
-.modern input[type="radio"]:enabled + label:hover > .check {
-  background-color: #b7b7b7;
+.modern input[type=checkbox]:enabled + label:hover > .check, .modern input[type=checkbox]:enabled:checked + label:hover > .check,
+.modern input[type=radio]:enabled + label:hover > .check,
+.modern input[type=radio]:enabled:checked + label:hover > .check {
   transition-duration: 50ms;
 }
-.modern input[type="checkbox"]:enabled:active + label > .check,
-.modern input[type="radio"]:enabled:active + label > .check {
-  background-color: #848484;
+.modern input[type=checkbox]:enabled:active + label > .check, .modern input[type=checkbox]:enabled:checked:active + label > .check,
+.modern input[type=radio]:enabled:active + label > .check,
+.modern input[type=radio]:enabled:checked:active + label > .check {
   transition-duration: 0ms;
 }
-.modern input[type="checkbox"]:enabled:checked + label:hover > .check,
-.modern input[type="radio"]:enabled:checked + label:hover > .check {
-  background-color: #6a6a6a;
-  transition-duration: 50ms;
-}
-.modern input[type="checkbox"]:enabled:checked:active + label > .check,
-.modern input[type="radio"]:enabled:checked:active + label > .check {
-  background-color: #aaaaaa;
-  transition-duration: 0ms;
-}
-.modern input[type="radio"] + label > .check.small {
+.modern input[type=radio] + label > .check.small {
   border-radius: 6px;
 }
-.modern input[type="radio"] + label > .check,
-.modern input[type="radio"] + label > .check.medium {
+.modern input[type=radio] + label > .check, .modern input[type=radio] + label > .check.medium {
   border-radius: 8px;
 }
-.modern input[type="radio"] + label > .check.large {
+.modern input[type=radio] + label > .check.large {
   border-radius: 10px;
 }
 .modern select {
   outline: 0;
-  padding: 0 2px;
+  padding: 1px 2px;
   border-width: 1px;
-  border-color: #d0d0d0;
   border-style: solid;
   font-family: inherit;
   font-size: inherit;
-  background-color: #f0f0f0;
-  color: #444444;
 }
 .modern select:disabled {
   opacity: 0.3;
 }
+.modern, .modern .light, .modern.light {
+  background: #f0f0f0;
+  color: #444444;
+}
+.modern a, .modern .light a, .modern.light a {
+  color: #919191;
+}
+.modern a:hover, .modern a:focus, .modern .light a:hover, .modern .light a:focus, .modern.light a:hover, .modern.light a:focus {
+  color: #c4c4c4;
+}
+.modern a:active, .modern .light a:active, .modern.light a:active {
+  color: #777777;
+}
+.modern button,
+.modern input[type=button],
+.modern input[type=submit], .modern .light button,
+.modern .light input[type=button],
+.modern .light input[type=submit], .modern.light button,
+.modern.light input[type=button],
+.modern.light input[type=submit] {
+  background-color: #d0d0d0;
+  color: inherit;
+}
+.modern button:enabled:hover, .modern button:enabled:focus,
+.modern input[type=button]:enabled:hover,
+.modern input[type=button]:enabled:focus,
+.modern input[type=submit]:enabled:hover,
+.modern input[type=submit]:enabled:focus, .modern .light button:enabled:hover, .modern .light button:enabled:focus,
+.modern .light input[type=button]:enabled:hover,
+.modern .light input[type=button]:enabled:focus,
+.modern .light input[type=submit]:enabled:hover,
+.modern .light input[type=submit]:enabled:focus, .modern.light button:enabled:hover, .modern.light button:enabled:focus,
+.modern.light input[type=button]:enabled:hover,
+.modern.light input[type=button]:enabled:focus,
+.modern.light input[type=submit]:enabled:hover,
+.modern.light input[type=submit]:enabled:focus {
+  background-color: #b7b7b7;
+}
+.modern button:enabled:active,
+.modern input[type=button]:enabled:active,
+.modern input[type=submit]:enabled:active, .modern .light button:enabled:active,
+.modern .light input[type=button]:enabled:active,
+.modern .light input[type=submit]:enabled:active, .modern.light button:enabled:active,
+.modern.light input[type=button]:enabled:active,
+.modern.light input[type=submit]:enabled:active {
+  background-color: #848484;
+}
+.modern button.primary:enabled,
+.modern input[type=button].primary:enabled,
+.modern input[type=submit].primary:enabled, .modern .light button.primary:enabled,
+.modern .light input[type=button].primary:enabled,
+.modern .light input[type=submit].primary:enabled, .modern.light button.primary:enabled,
+.modern.light input[type=button].primary:enabled,
+.modern.light input[type=submit].primary:enabled {
+  background-color: #444444;
+  color: #ffffff;
+}
+.modern button.primary:enabled:hover, .modern button.primary:enabled:focus,
+.modern input[type=button].primary:enabled:hover,
+.modern input[type=button].primary:enabled:focus,
+.modern input[type=submit].primary:enabled:hover,
+.modern input[type=submit].primary:enabled:focus, .modern .light button.primary:enabled:hover, .modern .light button.primary:enabled:focus,
+.modern .light input[type=button].primary:enabled:hover,
+.modern .light input[type=button].primary:enabled:focus,
+.modern .light input[type=submit].primary:enabled:hover,
+.modern .light input[type=submit].primary:enabled:focus, .modern.light button.primary:enabled:hover, .modern.light button.primary:enabled:focus,
+.modern.light input[type=button].primary:enabled:hover,
+.modern.light input[type=button].primary:enabled:focus,
+.modern.light input[type=submit].primary:enabled:hover,
+.modern.light input[type=submit].primary:enabled:focus {
+  background-color: #6a6a6a;
+}
+.modern button.primary:enabled:active,
+.modern input[type=button].primary:enabled:active,
+.modern input[type=submit].primary:enabled:active, .modern .light button.primary:enabled:active,
+.modern .light input[type=button].primary:enabled:active,
+.modern .light input[type=submit].primary:enabled:active, .modern.light button.primary:enabled:active,
+.modern.light input[type=button].primary:enabled:active,
+.modern.light input[type=submit].primary:enabled:active {
+  background-color: #aaaaaa;
+}
+.modern button.secondary,
+.modern input[type=button].secondary,
+.modern input[type=submit].secondary, .modern .light button.secondary,
+.modern .light input[type=button].secondary,
+.modern .light input[type=submit].secondary, .modern.light button.secondary,
+.modern.light input[type=button].secondary,
+.modern.light input[type=submit].secondary {
+  border-color: #444444;
+  background-color: #f0f0f0;
+}
+.modern input[type=text],
+.modern textarea, .modern .light input[type=text],
+.modern .light textarea, .modern.light input[type=text],
+.modern.light textarea {
+  background-color: #d0d0d0;
+  color: inherit;
+}
+.modern input[type=checkbox] + label > .check,
+.modern input[type=radio] + label > .check, .modern .light input[type=checkbox] + label > .check,
+.modern .light input[type=radio] + label > .check, .modern.light input[type=checkbox] + label > .check,
+.modern.light input[type=radio] + label > .check {
+  border-color: #d0d0d0;
+  background-color: #d0d0d0;
+}
+.modern input[type=checkbox]:checked + label > .check,
+.modern input[type=radio]:checked + label > .check, .modern .light input[type=checkbox]:checked + label > .check,
+.modern .light input[type=radio]:checked + label > .check, .modern.light input[type=checkbox]:checked + label > .check,
+.modern.light input[type=radio]:checked + label > .check {
+  background-color: #444444;
+}
+.modern input[type=checkbox]:enabled + label:hover > .check,
+.modern input[type=radio]:enabled + label:hover > .check, .modern .light input[type=checkbox]:enabled + label:hover > .check,
+.modern .light input[type=radio]:enabled + label:hover > .check, .modern.light input[type=checkbox]:enabled + label:hover > .check,
+.modern.light input[type=radio]:enabled + label:hover > .check {
+  background-color: #b7b7b7;
+}
+.modern input[type=checkbox]:enabled:active + label > .check,
+.modern input[type=radio]:enabled:active + label > .check, .modern .light input[type=checkbox]:enabled:active + label > .check,
+.modern .light input[type=radio]:enabled:active + label > .check, .modern.light input[type=checkbox]:enabled:active + label > .check,
+.modern.light input[type=radio]:enabled:active + label > .check {
+  background-color: #848484;
+}
+.modern input[type=checkbox]:enabled:checked + label:hover > .check,
+.modern input[type=radio]:enabled:checked + label:hover > .check, .modern .light input[type=checkbox]:enabled:checked + label:hover > .check,
+.modern .light input[type=radio]:enabled:checked + label:hover > .check, .modern.light input[type=checkbox]:enabled:checked + label:hover > .check,
+.modern.light input[type=radio]:enabled:checked + label:hover > .check {
+  background-color: #6a6a6a;
+}
+.modern input[type=checkbox]:enabled:checked:active + label > .check,
+.modern input[type=radio]:enabled:checked:active + label > .check, .modern .light input[type=checkbox]:enabled:checked:active + label > .check,
+.modern .light input[type=radio]:enabled:checked:active + label > .check, .modern.light input[type=checkbox]:enabled:checked:active + label > .check,
+.modern.light input[type=radio]:enabled:checked:active + label > .check {
+  background-color: #aaaaaa;
+}
+.modern select, .modern .light select, .modern.light select {
+  border-color: #d0d0d0;
+  background-color: #f0f0f0;
+  color: #444444;
+}
+
+/*# sourceMappingURL=modern.css.map */
