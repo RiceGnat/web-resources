@@ -1,0 +1,11 @@
+{
+  "name": "web-resources",
+  "version": "0.0.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RiceGnat/web-resources.git"
+  },
+  "devDependencies": {
+    "sass": "^1.22.10"
+  }
+}
