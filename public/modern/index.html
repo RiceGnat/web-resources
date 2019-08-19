@@ -33,6 +33,10 @@
       max-width: 750px;
     }
 
+    .row {
+      margin-bottom: 1em;
+    }
+
     body>div.dark {
       flex: 1;
     }
@@ -66,72 +70,81 @@
         <li>Download files and see markup examples on <a
             href="https://github.com/RiceGnat/utilities/tree/master/web/resources/modern">GitHub</a></li>
       </ul>
-      <h6>Controls</h6>
-      <button id="toggleDisabled">Toggle</button> disabled state of all controls below
-      <p>
-        <input type="text" placeholder="Textbox" />
-        <select>
-          <option>
-            Select
-          </option>
-          <option>
-            Option 1
-          </option>
-          <option>
-            Option 2
-          </option>
-        </select>&ensp;
-        <input type="submit" class="primary" />
-        <input type="button" class="secondary" value="Cancel" />
-      </p>
-      <p>
-        <input type="checkbox" id="check1" />
-        <label for="check1"><span class="check small"></span>Small checkbox</label>&emsp;
-        <input type="checkbox" id="check2" />
-        <label for="check2"><span class="check medium"></span>Medium checkbox</label>&emsp;
-        <input type="checkbox" id="check3" />
-        <label for="check3"><span class="check large"></span>Large checkbox</label>
-      </p>
-      <p>
-        <input type="radio" id="radio1" name="radio" />
-        <label for="radio1"><span class="check small"></span>Small radio button</label>&emsp;
-        <input type="radio" id="radio2" name="radio" />
-        <label for="radio2"><span class="check medium"></span>Medium radio button</label>&emsp;
-        <input type="radio" id="radio3" name="radio" />
-        <label for="radio3"><span class="check large"></span>Large radio button</label>
-      </p>
+      <fieldset>
+        <legend>Controls</legend>
+        <div class="row">
+          <button id="toggleDisabled">Toggle</button> disabled state of all controls below
+        </div>
+        <div class="row">
+          <input type="text" placeholder="Textbox" />
+          <select>
+            <option>
+              Select
+            </option>
+            <option>
+              Option 1
+            </option>
+            <option>
+              Option 2
+            </option>
+          </select>&ensp;
+          <input type="submit" class="primary" />
+          <input type="button" class="secondary" value="Cancel" />
+        </div>
+        <div class="row">
+          <input type="checkbox" id="check1" />
+          <label for="check1"><span class="check small"></span>Small checkbox</label>&emsp;
+          <input type="checkbox" id="check2" />
+          <label for="check2"><span class="check medium"></span>Medium checkbox</label>&emsp;
+          <input type="checkbox" id="check3" />
+          <label for="check3"><span class="check large"></span>Large checkbox</label>
+        </div>
+        <div class="row">
+          <input type="radio" id="radio1" name="radio" />
+          <label for="radio1"><span class="check small"></span>Small radio button</label>&emsp;
+          <input type="radio" id="radio2" name="radio" />
+          <label for="radio2"><span class="check medium"></span>Medium radio button</label>&emsp;
+          <input type="radio" id="radio3" name="radio" />
+          <label for="radio3"><span class="check large"></span>Large radio button</label>
+        </div>
+      </fieldset>
     </div>
   </div>
   <div class="dark">
-    <h5 class="inline-block">Dark theme <span class="tip">modern.dark.css</span></h5>
-    <h6>Extension stylesheet</h6>
-    <p>
-      Color overrides are fully contained within the tagged element.
-    </p>
-    <p>
-      <input type="text" placeholder="Textbox" />
-      <select>
-        <option>
-          Select
-        </option>
-        <option>
-          Option 1
-        </option>
-        <option>
-          Option 2
-        </option>
-      </select>&ensp;
-      <input type="submit" class="primary" />
-      <input type="button" class="secondary" value="Cancel" />
-    </p>
-    <p>
-      <input type="checkbox" id="checkDark" />
-      <label for="checkDark"><span class="check medium"></span>Checkbox</label>&emsp;
-      <input type="radio" id="radioDark1" name="radioDark" />
-      <label for="radioDark1"><span class="check medium"></span>Radio 1</label>&emsp;
-      <input type="radio" id="radioDark2" name="radioDark" />
-      <label for="radioDark2"><span class="check medium"></span>Radio 2</label>&emsp;
-    </p>
+    <div class="container">
+      <h5 class="inline-block">Dark theme <span class="tip">modern.dark.css</span></h5>
+      <h6>Extension stylesheet</h6>
+      <div class="row">
+        Color overrides are fully contained within the tagged element.
+      </div>
+      <fieldset>
+        <legend>Controls</legend>
+        <div class="row">
+          <input type="text" placeholder="Textbox" />
+          <select>
+            <option>
+              Select
+            </option>
+            <option>
+              Option 1
+            </option>
+            <option>
+              Option 2
+            </option>
+          </select>&ensp;
+          <input type="submit" class="primary" />
+          <input type="button" class="secondary" value="Cancel" />
+        </div>
+        <div class="row">
+          <input type="checkbox" id="checkDark" />
+          <label for="checkDark"><span class="check medium"></span>Checkbox</label>&emsp;
+          <input type="radio" id="radioDark1" name="radioDark" />
+          <label for="radioDark1"><span class="check medium"></span>Radio 1</label>&emsp;
+          <input type="radio" id="radioDark2" name="radioDark" />
+          <label for="radioDark2"><span class="check medium"></span>Radio 2</label>&emsp;
+        </div>
+      </fieldset> 
+    </div>
   </div>
 </body>
 

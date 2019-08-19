@@ -1,6 +1,7 @@
 .modern {
   font-family: "Segoe UI", sans-serif;
   font-weight: 400;
+  font-size: 16px;
 }
 .modern .tip {
   font-size: 80%;
@@ -260,6 +261,16 @@
 .modern select:disabled {
   opacity: 0.3;
 }
+.modern fieldset {
+  border-width: 0.0625em;
+  margin: 0;
+  padding: 0.5em 1em;
+}
+.modern fieldset legend {
+  padding: 0 0.5em;
+  font-size: 120%;
+  font-weight: 300;
+}
 .modern, .modern .light, .modern.light {
   background: #f0f0f0;
   color: #444444;
@@ -409,6 +420,9 @@
 }
 .modern select:enabled option, .modern .light select:enabled option, .modern.light select:enabled option {
   background-color: #f0f0f0;
+}
+.modern fieldset, .modern .light fieldset, .modern.light fieldset {
+  border-color: #d0d0d0;
 }
 
 /*# sourceMappingURL=modern.css.map */

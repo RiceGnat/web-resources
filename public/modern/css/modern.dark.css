@@ -148,6 +148,10 @@
 .modern .dark select:enabled option {
   background-color: #444444;
 }
+.modern.dark fieldset,
+.modern .dark fieldset {
+  border-color: #222222;
+}
 .modern.dark a,
 .modern .dark a {
   color: #909090;

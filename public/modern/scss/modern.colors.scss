@@ -116,4 +116,8 @@ $on-secondary: #ffffff !default;
       }
     }
   }
+
+  fieldset {
+    border-color: $primary-alt;
+  }
 }

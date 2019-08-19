@@ -15,7 +15,7 @@ $button-padding: 1.5em;
 }
 
 @mixin control-size($padding-x) {
-  @include border-box();
+  @include border-box;
   height: 1.75em;
   padding: 0 $padding-x;
 }
@@ -23,6 +23,7 @@ $button-padding: 1.5em;
 .modern {
   font-family: "Segoe UI", sans-serif;
   font-weight: 400;
+  font-size: 16px;
 
   .tip {
     font-size: 80%;
@@ -214,7 +215,7 @@ $button-padding: 1.5em;
       & > .check {
         display: inline-block;
         position: relative;
-        @include border-box();
+        @include border-box;
         margin: 0 0.5em;
         transition-property: background-color, border, opacity;
         transition-duration: $fade-out;
@@ -305,7 +306,19 @@ $button-padding: 1.5em;
     }
   }
 
+  fieldset {
+    border-width: $control-border;
+    margin: 0;
+    padding: 0.5em 1em;
+
+    legend {
+      padding: 0 0.5em;
+      font-size: 120%;
+      font-weight: 300;
+    }
+  }
+
   &, & .light, &.light {
-    @include modern-colors();
+    @include modern-colors;
   }
 }
