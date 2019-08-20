@@ -11,9 +11,8 @@
   transition-duration: 100ms;
 }
 .modern .tip {
-  font-size: 80%;
+  font-size: 0.8em;
   font-style: italic;
-  opacity: 0.7;
 }
 .modern b {
   font-weight: 600;
@@ -125,7 +124,7 @@
 .modern button:disabled,
 .modern input[type=button]:disabled,
 .modern input[type=submit]:disabled {
-  opacity: 0.3;
+  opacity: 0.5;
 }
 .modern input[type=text],
 .modern textarea {
@@ -157,7 +156,7 @@
 }
 .modern input[type=text]:disabled,
 .modern textarea:disabled {
-  opacity: 0.3;
+  opacity: 0.5;
 }
 .modern input[type=checkbox],
 .modern input[type=radio] {
@@ -227,7 +226,7 @@
 }
 .modern input[type=checkbox]:disabled + label > .check,
 .modern input[type=radio]:disabled + label > .check {
-  opacity: 0.3;
+  opacity: 0.5;
 }
 .modern input[type=checkbox]:indeterminate + label > .check {
   border-top-width: 0.3em;
@@ -269,7 +268,7 @@
   cursor: pointer;
 }
 .modern select:disabled {
-  opacity: 0.3;
+  opacity: 0.5;
 }
 .modern fieldset {
   border-width: 0.0625em;
@@ -310,7 +309,14 @@
   transition-duration: 0ms;
 }
 .modern .segmented-radio-group input:disabled + label {
-  opacity: 0.3;
+  opacity: 0.5;
+}
+.modern .tip {
+  color: rgba(68, 68, 68, 0.7);
+}
+.modern ::selection {
+  background-color: rgba(68, 68, 68, 0.997);
+  color: #ffffff;
 }
 .modern ul li::before {
   background-color: #444444;
@@ -366,6 +372,7 @@
 .modern textarea {
   background-color: #d0d0d0;
   color: inherit;
+  caret-color: #444444;
 }
 .modern input[type=checkbox] + label > .check,
 .modern input[type=radio] + label > .check {

@@ -3,6 +3,15 @@
   background: #444444;
   color: #d0d0d0;
 }
+.modern.dark .tip,
+.modern .dark .tip {
+  color: rgba(208, 208, 208, 0.7);
+}
+.modern.dark ::selection,
+.modern .dark ::selection {
+  background-color: rgba(208, 208, 208, 0.997);
+  color: #222222;
+}
 .modern.dark ul li::before,
 .modern .dark ul li::before {
   background-color: #d0d0d0;
@@ -84,6 +93,7 @@
 .modern .dark textarea {
   background-color: #222222;
   color: inherit;
+  caret-color: #d0d0d0;
 }
 .modern.dark input[type=checkbox] + label > .check,
 .modern.dark input[type=radio] + label > .check,

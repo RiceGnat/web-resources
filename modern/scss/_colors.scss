@@ -14,6 +14,15 @@ $on-secondary: #ffffff !default;
   background: $primary;
   color: $on-primary;
 
+  .tip {
+    color: rgba($on-primary, 0.7);
+  }
+
+  ::selection {
+    background-color: rgba($secondary, 0.997);
+    color: $on-secondary;
+  }
+
   ul li::before {
     background-color: $on-primary;
   }
@@ -69,6 +78,7 @@ $on-secondary: #ffffff !default;
   textarea {
     background-color: $primary-alt;
     color: inherit;
+    caret-color: $secondary;
   }
 
   input[type="checkbox"],
