@@ -77,6 +77,9 @@
 .modern a:active {
   transition-duration: 0ms;
 }
+.modern label {
+  white-space: nowrap;
+}
 .modern button,
 .modern input[type=button],
 .modern input[type=submit] {
