@@ -59,8 +59,8 @@ The `dark` styling will be contained within the tagged element, allowing it to b
     <div>
         <h1>Modern</h1>
         <h2>Visual Style</h2>
-        <h3>Inspired by Windows Modern Design</h3>
-        <h4>As introduced in Windows 8</h4>
+        <h3>Inspired by Metro</h3>
+        <h4>Minimal Design Language</h4>
         <h5 class="inline-block">Monochrome theme</h5> <span class="tip">modern.css</span>
     </div>
     <div class="dark">
