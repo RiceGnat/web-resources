@@ -1,6 +1,7 @@
 $fade-in: 50ms;
 $fade-out: 100ms;
 $disabled-opacity: 0.3;
+$control-height: 1.75em;
 $control-border: 0.0625em;
 $control-margin: 0.125em;
 $textbox-padding: 0.5em;
@@ -18,7 +19,7 @@ $button-padding: 1.5em;
 
 @mixin control-size($padding-x) {
   @include border-box;
-  height: 1.75em;
+  height: $control-height;
   padding: 0 $padding-x;
 }
 

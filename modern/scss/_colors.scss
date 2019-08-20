@@ -125,4 +125,40 @@ $on-secondary: #ffffff !default;
   fieldset {
     border-color: $primary-alt;
   }
+
+  .segmented-radio-group {
+    label {
+      background-color: $primary;
+      border-color: $primary-alt;
+    }
+
+    input {
+      &:checked + label {
+        background-color: $secondary;
+        color: $on-secondary;
+      }
+
+      &:enabled {
+        &:not(:checked) {
+          & + label:hover {
+            background-color: darken($primary-alt, 10%);
+          }
+      
+          &:active + label {
+            background-color: darken($primary-alt, 30%);
+          }
+        } 
+    
+        &:checked {
+          & + label:hover {
+            background-color: lighten($secondary, 30%);
+          }
+    
+          &:active + label {
+            background-color: lighten($secondary, 50%);
+          }
+        }
+      }
+    }
+  }
 }

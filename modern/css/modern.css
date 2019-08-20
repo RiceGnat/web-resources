@@ -80,7 +80,6 @@
 .modern button,
 .modern input[type=button],
 .modern input[type=submit] {
-  cursor: pointer;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -94,6 +93,11 @@
   font-weight: 600;
   transition-timing-function: ease-out;
 }
+.modern button:enabled,
+.modern input[type=button]:enabled,
+.modern input[type=submit]:enabled {
+  cursor: pointer;
+}
 .modern button:enabled:hover,
 .modern input[type=button]:enabled:hover,
 .modern input[type=submit]:enabled:hover {
@@ -103,11 +107,6 @@
 .modern input[type=button]:enabled:active,
 .modern input[type=submit]:enabled:active {
   transition-duration: 0ms;
-}
-.modern button:disabled,
-.modern input[type=button]:disabled,
-.modern input[type=submit]:disabled {
-  opacity: 0.3;
 }
 .modern button.primary,
 .modern input[type=button].primary,
@@ -119,6 +118,11 @@
 .modern input[type=submit].secondary {
   border-width: 0.0625em;
   border-style: solid;
+}
+.modern button:disabled,
+.modern input[type=button]:disabled,
+.modern input[type=submit]:disabled {
+  opacity: 0.3;
 }
 .modern input[type=text],
 .modern textarea {
@@ -134,10 +138,6 @@
   font-size: inherit;
   font-weight: inherit;
 }
-.modern input[type=text]:disabled,
-.modern textarea:disabled {
-  opacity: 0.3;
-}
 .modern input[type=text]::placeholder,
 .modern textarea::placeholder {
   font-style: italic;
@@ -151,6 +151,10 @@
 .modern input[type=text]:read-only,
 .modern textarea:read-only {
   background-color: transparent;
+}
+.modern input[type=text]:disabled,
+.modern textarea:disabled {
+  opacity: 0.3;
 }
 .modern input[type=checkbox],
 .modern input[type=radio] {
@@ -166,7 +170,6 @@
 }
 .modern input[type=checkbox] + label,
 .modern input[type=radio] + label {
-  cursor: pointer;
   margin: 0.125em 0;
 }
 .modern input[type=checkbox] + label > .check,
@@ -199,15 +202,17 @@
   height: 1.25em;
   top: 0.25em;
 }
-.modern input[type=checkbox]:checked + label > .check, .modern input[type=checkbox]:checked + label > .check.small, .modern input[type=checkbox]:checked + label > .check.medium,
-.modern input[type=radio]:checked + label > .check,
-.modern input[type=radio]:checked + label > .check.small,
-.modern input[type=radio]:checked + label > .check.medium {
+.modern input[type=checkbox]:checked + label > .check,
+.modern input[type=radio]:checked + label > .check {
   border-width: 0.2em;
 }
 .modern input[type=checkbox]:checked + label > .check.large,
 .modern input[type=radio]:checked + label > .check.large {
   border-width: 0.25em;
+}
+.modern input[type=checkbox]:enabled + label > .check,
+.modern input[type=radio]:enabled + label > .check {
+  cursor: pointer;
 }
 .modern input[type=checkbox]:enabled + label:hover > .check,
 .modern input[type=radio]:enabled + label:hover > .check {
@@ -217,8 +222,8 @@
 .modern input[type=radio]:enabled:active + label > .check {
   transition-duration: 0ms;
 }
-.modern input[type=checkbox]:disabled + label,
-.modern input[type=radio]:disabled + label {
+.modern input[type=checkbox]:disabled + label > .check,
+.modern input[type=radio]:disabled + label > .check {
   opacity: 0.3;
 }
 .modern input[type=radio] + label > .check.small {
@@ -230,19 +235,6 @@
 .modern input[type=radio] + label > .check.large {
   border-radius: 0.625em;
 }
-.modern .segmented-radio-group {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-}
-.modern .segmented-radio-group label {
-  display: block;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  height: 1.75em;
-  padding: 0 1.5em;
-}
 .modern select {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -253,7 +245,6 @@
   border-width: 0.0625em;
   border-style: solid;
   outline: 0;
-  cursor: pointer;
   font-family: inherit;
   font-size: inherit;
   -moz-appearance: none;
@@ -262,6 +253,9 @@
   background-position: calc(100% - 1em) 54%, calc(100% - 0.5em) 54%;
   background-size: 0.5em 0.5em, 0.5em 0.5em;
   background-repeat: no-repeat;
+}
+.modern select:enabled {
+  cursor: pointer;
 }
 .modern select:disabled {
   opacity: 0.3;
@@ -275,6 +269,37 @@
   padding: 0 0.5em;
   font-size: 120%;
   font-weight: 300;
+}
+.modern .segmented-radio-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.modern .segmented-radio-group.inline {
+  display: inline-flex;
+}
+.modern .segmented-radio-group label {
+  display: block;
+  border-width: 0.0625em;
+  border-style: solid;
+  padding: 0.3125em 1.5em;
+  line-height: 1em;
+  text-align: center;
+}
+.modern .segmented-radio-group label:not(:first-of-type) {
+  border-left: none;
+}
+.modern .segmented-radio-group input:enabled + label {
+  cursor: pointer;
+}
+.modern .segmented-radio-group input:enabled + label:hover {
+  transition-duration: 50ms;
+}
+.modern .segmented-radio-group input:enabled:active + label {
+  transition-duration: 0ms;
+}
+.modern .segmented-radio-group input:disabled + label {
+  opacity: 0.3;
 }
 .modern ul li::before {
   background-color: #444444;
@@ -370,6 +395,26 @@
 }
 .modern fieldset {
   border-color: #d0d0d0;
+}
+.modern .segmented-radio-group label {
+  background-color: #f0f0f0;
+  border-color: #d0d0d0;
+}
+.modern .segmented-radio-group input:checked + label {
+  background-color: #444444;
+  color: #ffffff;
+}
+.modern .segmented-radio-group input:enabled:not(:checked) + label:hover {
+  background-color: #b7b7b7;
+}
+.modern .segmented-radio-group input:enabled:not(:checked):active + label {
+  background-color: #848484;
+}
+.modern .segmented-radio-group input:enabled:checked + label:hover {
+  background-color: #919191;
+}
+.modern .segmented-radio-group input:enabled:checked:active + label {
+  background-color: #c4c4c4;
 }
 
 .noselect {

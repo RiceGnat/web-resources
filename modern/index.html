@@ -45,7 +45,7 @@
   <script>
     $(function () {
       $("#toggleDisabled").on("click", function (e) {
-        $(".modern input, .modern select, .modern textarea").prop('disabled', function (i, v) { return !v; });
+        $(".controls").prop('disabled', function (i, v) { return !v; });
       });
 
       $("#toggleDark").on("click", function (e) {
@@ -74,44 +74,56 @@
         <li>Download files and see markup examples on <a
             href="https://github.com/RiceGnat/web-resources/tree/master/public/modern">GitHub</a></li>
       </ul>
-      <fieldset>
-        <legend>Controls</legend>
-        <div class="row">
-          <button id="toggleDisabled">Toggle</button> disabled state of all controls below
-        </div>
-        <div class="row">
-          <input type="text" placeholder="Textbox" />
-          <select>
-            <option>
-              Select
-            </option>
-            <option>
-              Option 1
-            </option>
-            <option>
-              Option 2
-            </option>
-          </select>&ensp;
-          <input type="submit" class="primary" />
-          <input type="button" class="secondary" value="Cancel" />
-        </div>
-        <div class="row">
-          <input type="checkbox" id="check1" />
-          <label for="check1"><span class="check small"></span>Small checkbox</label>&emsp;
-          <input type="checkbox" id="check2" />
-          <label for="check2"><span class="check medium"></span>Medium checkbox</label>&emsp;
-          <input type="checkbox" id="check3" />
-          <label for="check3"><span class="check large"></span>Large checkbox</label>
-        </div>
-        <div class="row">
-          <input type="radio" id="radio1" name="radio" />
-          <label for="radio1"><span class="check small"></span>Small radio button</label>&emsp;
-          <input type="radio" id="radio2" name="radio" />
-          <label for="radio2"><span class="check medium"></span>Medium radio button</label>&emsp;
-          <input type="radio" id="radio3" name="radio" />
-          <label for="radio3"><span class="check large"></span>Large radio button</label>
-        </div>
-      </fieldset>
+      <div class="row">
+        <fieldset class="controls">
+          <legend>Controls</legend>
+          <div class="row">
+            <input type="text" placeholder="Textbox" />
+            <select>
+              <option>
+                Select
+              </option>
+              <option>
+                Option 1
+              </option>
+              <option>
+                Option 2
+              </option>
+            </select>&ensp;
+            <input type="submit" class="primary" />
+            <input type="button" class="secondary" value="Cancel" />
+          </div>
+          <div class="row">
+            <input type="checkbox" id="check1" />
+            <label for="check1"><span class="check small"></span>Small checkbox</label>&emsp;
+            <input type="checkbox" id="check2" />
+            <label for="check2"><span class="check medium"></span>Medium checkbox</label>&emsp;
+            <input type="checkbox" id="check3" />
+            <label for="check3"><span class="check large"></span>Large checkbox</label>
+          </div>
+          <div class="row">
+            <input type="radio" id="radio1" name="radio" />
+            <label for="radio1"><span class="check small"></span>Small radio button</label>&emsp;
+            <input type="radio" id="radio2" name="radio" />
+            <label for="radio2"><span class="check medium"></span>Medium radio button</label>&emsp;
+            <input type="radio" id="radio3" name="radio" />
+            <label for="radio3"><span class="check large"></span>Large radio button</label>
+          </div>
+          <div class="row">
+            <div class="segmented-radio-group inline">
+              <input type="radio" id="segmentedRadio1" name="segmentedRadio" />
+              <label for="segmentedRadio1">Segmented</label>
+              <input type="radio" id="segmentedRadio2" name="segmentedRadio" />
+              <label for="segmentedRadio2">Radio</label>
+              <input type="radio" id="segmentedRadio3" name="segmentedRadio" />
+              <label for="segmentedRadio3">Group</label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div class="row">
+        <button id="toggleDisabled">Toggle</button> disabled state of all controls above
+      </div>
     </div>
   </div>
   <div class="dark">

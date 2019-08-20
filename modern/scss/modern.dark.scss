@@ -67,4 +67,26 @@ $on-secondary: $primary-alt !default;
       }
     }
   }
+
+  .segmented-radio-group input:enabled {
+    &:not(:checked) {
+      & + label:hover {
+        background-color: lighten($primary, 10%);
+      }
+  
+      &:active + label {
+        background-color: lighten($primary, 20%);
+      }
+    } 
+
+    &:checked {
+      & + label:hover {
+        background-color: darken($secondary, 15%);
+      }
+
+      &:active + label {
+        background-color: darken($secondary, 40%);
+      }
+    }
+  }
 }

@@ -94,7 +94,6 @@
   button,
   input[type="button"],
   input[type="submit"] {
-    @include control-pointer;
     @include control-size($button-padding);
     border: 0;
     margin: $control-margin 0;
@@ -105,6 +104,8 @@
     transition-timing-function: ease-out;
 
     &:enabled {
+      @include control-pointer;
+
       &:hover {
         transition-duration: $fade-in;
       }
@@ -114,17 +115,18 @@
       }
     }
 
-    &:disabled {
-      opacity: $disabled-opacity;
-    }
-
     &.primary {
       font-weight: 600;
     }
 
     &.secondary {
       border-width: $control-border;
+
       border-style: solid;
+    }
+
+    &:disabled {
+      opacity: $disabled-opacity;
     }
   }
 
@@ -137,10 +139,6 @@
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
-
-    &:disabled {
-      opacity: $disabled-opacity;
-    }
 
     &::placeholder {
       font-style: italic;
@@ -155,6 +153,10 @@
     &:read-only {
       background-color: transparent;
     }
+    
+    &:disabled {
+      opacity: $disabled-opacity;
+    }
   }
 
   input[type="checkbox"],
@@ -162,7 +164,6 @@
     @include invisible;
 
     & + label {
-      @include control-pointer;
       margin: $control-margin 0;
 
       & > .check {
@@ -195,11 +196,7 @@
     }
     
     &:checked + label > .check {
-      &,
-      &.small,
-      &.medium {
-        border-width: 0.2em;
-      }
+      border-width: 0.2em;
   
       &.large {
         border-width: 0.25em;
@@ -207,6 +204,10 @@
     }
 
     &:enabled {
+      & + label > .check {
+        @include control-pointer;
+      }
+
       & + label:hover > .check {
         transition-duration: $fade-in;
       }
@@ -216,7 +217,7 @@
       }
     }
 
-    &:disabled + label {
+    &:disabled + label > .check {
       opacity: $disabled-opacity;
     }
   }
@@ -238,24 +239,12 @@
     }
   }
 
-  .segmented-radio-group {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-
-    label {
-      display: block;
-      @include control-size($button-padding);
-    }
-  }
-
   select {
     @include control-size($textbox-padding);
     padding-right: 2em;
     border-width: $control-border;
     border-style: solid;
     outline: 0;
-    @include control-pointer;
     font-family: inherit;
     font-size: inherit;
     -moz-appearance: none;
@@ -269,6 +258,10 @@
       0.5em 0.5em;
     background-repeat: no-repeat;
 
+    &:enabled {
+      @include control-pointer;
+    }
+    
     &:disabled {
       opacity: $disabled-opacity;
     }
@@ -283,6 +276,49 @@
       padding: 0 0.5em;
       font-size: 120%;
       font-weight: 300;
+    }
+  }
+  
+  .segmented-radio-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    &.inline {
+      display: inline-flex;
+    }
+
+    label {
+      display: block;
+      border-width: $control-border;
+      border-style: solid;
+      padding: ($control-height - 1) / 2 - $control-border $button-padding;
+      line-height: 1em;
+      text-align: center;
+    }
+
+    label:not(:first-of-type) {
+      border-left: none;
+    }
+    
+    input {
+      &:enabled {
+        & + label {
+          @include control-pointer;
+        }
+  
+        & + label:hover {
+          transition-duration: $fade-in;
+        }
+  
+        &:active + label {
+          transition-duration: 0ms;
+        }
+      }
+
+      &:disabled + label {
+        opacity: $disabled-opacity;
+      }
     }
   }
 
