@@ -9,7 +9,7 @@
 }
 .modern.dark a,
 .modern .dark a {
-  color: white;
+  color: #d0d0d0;
 }
 .modern.dark a:hover, .modern.dark a:focus,
 .modern .dark a:hover,
@@ -70,7 +70,7 @@
 .modern .dark input[type=button].primary:enabled:focus,
 .modern .dark input[type=submit].primary:enabled:hover,
 .modern .dark input[type=submit].primary:enabled:focus {
-  background-color: #f6f6f6;
+  background-color: white;
 }
 .modern.dark button.primary:enabled:active,
 .modern.dark input[type=button].primary:enabled:active,
@@ -109,23 +109,23 @@
 .modern .dark input[type=radio]:checked + label > .check {
   background-color: #d0d0d0;
 }
-.modern.dark input[type=checkbox]:enabled + label:hover > .check,
-.modern.dark input[type=radio]:enabled + label:hover > .check,
-.modern .dark input[type=checkbox]:enabled + label:hover > .check,
-.modern .dark input[type=radio]:enabled + label:hover > .check {
+.modern.dark input[type=checkbox]:enabled:not(:checked) + label:hover > .check,
+.modern.dark input[type=radio]:enabled:not(:checked) + label:hover > .check,
+.modern .dark input[type=checkbox]:enabled:not(:checked) + label:hover > .check,
+.modern .dark input[type=radio]:enabled:not(:checked) + label:hover > .check {
   background-color: #090909;
 }
-.modern.dark input[type=checkbox]:enabled:active + label > .check,
-.modern.dark input[type=radio]:enabled:active + label > .check,
-.modern .dark input[type=checkbox]:enabled:active + label > .check,
-.modern .dark input[type=radio]:enabled:active + label > .check {
-  background-color: black;
+.modern.dark input[type=checkbox]:enabled:not(:checked):active + label > .check,
+.modern.dark input[type=radio]:enabled:not(:checked):active + label > .check,
+.modern .dark input[type=checkbox]:enabled:not(:checked):active + label > .check,
+.modern .dark input[type=radio]:enabled:not(:checked):active + label > .check {
+  background-color: #eaeaea;
 }
 .modern.dark input[type=checkbox]:enabled:checked + label:hover > .check,
 .modern.dark input[type=radio]:enabled:checked + label:hover > .check,
 .modern .dark input[type=checkbox]:enabled:checked + label:hover > .check,
 .modern .dark input[type=radio]:enabled:checked + label:hover > .check {
-  background-color: #f6f6f6;
+  border-color: #090909;
 }
 .modern.dark input[type=checkbox]:enabled:checked:active + label > .check,
 .modern.dark input[type=radio]:enabled:checked:active + label > .check,
@@ -140,8 +140,9 @@
   color: #d0d0d0;
   background-image: linear-gradient(45deg, transparent 50%, #d0d0d0 50%, #d0d0d0 75%, transparent 75%), linear-gradient(135deg, transparent 25%, #d0d0d0 25%, #d0d0d0 50%, transparent 50%);
 }
-.modern.dark select:enabled:hover,
-.modern .dark select:enabled:hover {
+.modern.dark select:enabled:hover, .modern.dark select:enabled:focus,
+.modern .dark select:enabled:hover,
+.modern .dark select:enabled:focus {
   background-color: #222222;
 }
 .modern.dark select:enabled option,
@@ -152,18 +153,14 @@
 .modern .dark fieldset {
   border-color: #222222;
 }
-.modern.dark a,
-.modern .dark a {
-  color: #909090;
-}
 .modern.dark a:hover, .modern.dark a:focus,
 .modern .dark a:hover,
 .modern .dark a:focus {
-  color: #6a6a6a;
+  color: #aaaaaa;
 }
 .modern.dark a:active,
 .modern .dark a:active {
-  color: #c3c3c3;
+  color: #6a6a6a;
 }
 .modern.dark button:enabled:hover, .modern.dark button:enabled:focus,
 .modern.dark input[type=button]:enabled:hover,
@@ -176,7 +173,7 @@
 .modern .dark input[type=button]:enabled:focus,
 .modern .dark input[type=submit]:enabled:hover,
 .modern .dark input[type=submit]:enabled:focus {
-  background-color: #555555;
+  background-color: #5e5e5e;
 }
 .modern.dark button:enabled:active,
 .modern.dark input[type=button]:enabled:active,
@@ -184,7 +181,7 @@
 .modern .dark button:enabled:active,
 .modern .dark input[type=button]:enabled:active,
 .modern .dark input[type=submit]:enabled:active {
-  background-color: #2f2f2f;
+  background-color: #777777;
 }
 .modern.dark button.primary:enabled:hover, .modern.dark button.primary:enabled:focus,
 .modern.dark input[type=button].primary:enabled:hover,
@@ -207,29 +204,29 @@
 .modern .dark input[type=submit].primary:enabled:active {
   background-color: #6a6a6a;
 }
-.modern.dark input[type=checkbox]:enabled + label:hover > .check,
-.modern.dark input[type=radio]:enabled + label:hover > .check,
-.modern .dark input[type=checkbox]:enabled + label:hover > .check,
-.modern .dark input[type=radio]:enabled + label:hover > .check {
-  background-color: #555555;
+.modern.dark input[type=checkbox]:enabled:not(:checked) + label:hover > .check,
+.modern.dark input[type=radio]:enabled:not(:checked) + label:hover > .check,
+.modern .dark input[type=checkbox]:enabled:not(:checked) + label:hover > .check,
+.modern .dark input[type=radio]:enabled:not(:checked) + label:hover > .check {
+  background-color: #3c3c3c;
 }
-.modern.dark input[type=checkbox]:enabled:active + label > .check,
-.modern.dark input[type=radio]:enabled:active + label > .check,
-.modern .dark input[type=checkbox]:enabled:active + label > .check,
-.modern .dark input[type=radio]:enabled:active + label > .check {
-  background-color: #6a6a6a;
+.modern.dark input[type=checkbox]:enabled:not(:checked):active + label > .check,
+.modern.dark input[type=radio]:enabled:not(:checked):active + label > .check,
+.modern .dark input[type=checkbox]:enabled:not(:checked):active + label > .check,
+.modern .dark input[type=radio]:enabled:not(:checked):active + label > .check {
+  background-color: #9d9d9d;
 }
 .modern.dark input[type=checkbox]:enabled:checked + label:hover > .check,
 .modern.dark input[type=radio]:enabled:checked + label:hover > .check,
 .modern .dark input[type=checkbox]:enabled:checked + label:hover > .check,
 .modern .dark input[type=radio]:enabled:checked + label:hover > .check {
-  background-color: #aaaaaa;
+  border-color: #3c3c3c;
 }
 .modern.dark input[type=checkbox]:enabled:checked:active + label > .check,
 .modern.dark input[type=radio]:enabled:checked:active + label > .check,
 .modern .dark input[type=checkbox]:enabled:checked:active + label > .check,
 .modern .dark input[type=radio]:enabled:checked:active + label > .check {
-  background-color: #484848;
+  background-color: #9d9d9d;
 }
 
 /*# sourceMappingURL=modern.dark.css.map */

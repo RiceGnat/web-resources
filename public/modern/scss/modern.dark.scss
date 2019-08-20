@@ -3,22 +3,20 @@ $primary-alt: #222222 !default;
 $secondary: #d0d0d0 !default;
 $on-secondary: $primary-alt !default;
 
-@import "modern.colors";
+@import "colors";
 
 .modern.dark,
 .modern .dark {
   @include modern-colors;
 
   a {
-    color: darken($on-primary, 25%);
-
     &:hover,
     &:focus {
-      color: darken($on-primary, 40%);
+      color: darken($secondary, 15%);
     }
 
     &:active {
-      color: darken($on-primary, 5%);
+      color: darken($secondary, 40%);
     }
   }
 
@@ -28,11 +26,11 @@ $on-secondary: $primary-alt !default;
     &:enabled {
       &:hover,
       &:focus {
-        background-color: lighten($primary-alt, 20%);
+        background-color: lighten($primary, 10%);
       }
   
       &:active {
-        background-color: lighten($primary-alt, 5%);
+        background-color: lighten($primary, 20%);
       }
     }
 
@@ -51,20 +49,24 @@ $on-secondary: $primary-alt !default;
   input[type="checkbox"],
   input[type="radio"] {
     &:enabled {
-      & + label:hover > .check {
-        background-color: lighten($primary-alt, 20%);
-      }
+      &:not(:checked) {
+        & + label:hover > .check {
+          background-color: lighten($primary-alt, 10%);
+        }
+    
+        &:active + label > .check {
+          background-color: darken($secondary, 20%);
+        }
+      } 
   
-      &:active + label > .check {
-        background-color: darken($secondary, 40%);
-      }
+      &:checked {
+        & + label:hover > .check {
+          border-color: lighten($primary-alt, 10%);
+        }
   
-      &:checked + label:hover > .check {
-        background-color: darken($secondary, 15%);
-      }
-  
-      &:checked:active + label > .check {
-        background-color: lighten($primary-alt, 15%);
+        &:active + label > .check {
+          background-color: darken($secondary, 20%);
+        }
       }
     }
   }

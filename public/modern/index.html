@@ -29,16 +29,16 @@
       padding: 20px;
     }
 
+    .main {
+      flex: 1;
+    }
+
     .container {
       max-width: 750px;
     }
 
     .row {
       margin-bottom: 1em;
-    }
-
-    body>div.dark {
-      flex: 1;
     }
   </style>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -48,6 +48,10 @@
         $(".modern input, .modern select, .modern textarea").prop('disabled', function (i, v) { return !v; });
       });
 
+      $("#toggleDark").on("click", function (e) {
+        $(".main").toggleClass('dark');
+      });
+
       $("a, button, input[type=button], input[type=submit]").on("click", function (e) {
         $(this).blur();
       });
@@ -55,8 +59,8 @@
   </script>
 </head>
 
-<body class="modern flex">
-  <div>
+<body class="modern noselect">
+  <div class="main">
     <div class="container">
       <h1>Modern</h1>
       <h2>Visual Style</h2>
@@ -68,7 +72,7 @@
         <li>Designed for use with Segoe UI</li>
         <li>Pure CSS transitions</li>
         <li>Download files and see markup examples on <a
-            href="https://github.com/RiceGnat/utilities/tree/master/web/resources/modern">GitHub</a></li>
+            href="https://github.com/RiceGnat/web-resources/tree/master/public/modern">GitHub</a></li>
       </ul>
       <fieldset>
         <legend>Controls</legend>
@@ -115,37 +119,9 @@
       <h5 class="inline-block">Dark theme <span class="tip">modern.dark.css</span></h5>
       <h6>Extension stylesheet</h6>
       <div class="row">
-        Color overrides are fully contained within the tagged element.
+        <input id="toggleDark" type="button" value="Toggle" />
       </div>
-      <fieldset>
-        <legend>Controls</legend>
-        <div class="row">
-          <input type="text" placeholder="Textbox" />
-          <select>
-            <option>
-              Select
-            </option>
-            <option>
-              Option 1
-            </option>
-            <option>
-              Option 2
-            </option>
-          </select>&ensp;
-          <input type="submit" class="primary" />
-          <input type="button" class="secondary" value="Cancel" />
-        </div>
-        <div class="row">
-          <input type="checkbox" id="checkDark" />
-          <label for="checkDark"><span class="check medium"></span>Checkbox</label>&emsp;
-          <input type="radio" id="radioDark1" name="radioDark" />
-          <label for="radioDark1"><span class="check medium"></span>Radio 1</label>&emsp;
-          <input type="radio" id="radioDark2" name="radioDark" />
-          <label for="radioDark2"><span class="check medium"></span>Radio 2</label>&emsp;
-        </div>
-      </fieldset> 
     </div>
   </div>
 </body>
-
 </html>

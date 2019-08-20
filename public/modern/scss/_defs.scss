@@ -1,0 +1,36 @@
+$fade-in: 50ms;
+$fade-out: 100ms;
+$disabled-opacity: 0.3;
+$control-border: 0.0625em;
+$control-margin: 0.125em;
+$textbox-padding: 0.5em;
+$button-padding: 1.5em;
+
+@mixin control-pointer {
+  cursor: pointer;
+}
+
+@mixin border-box {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@mixin control-size($padding-x) {
+  @include border-box;
+  height: 1.75em;
+  padding: 0 $padding-x;
+}
+
+// to hide input controls while still allowing tab focus
+@mixin invisible {
+  position: absolute;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  opacity: 0;
+  z-index: -1;
+}

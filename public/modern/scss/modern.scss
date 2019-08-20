@@ -1,24 +1,5 @@
-﻿@import "modern.colors";
-
-$fade-in: 50ms;
-$fade-out: 100ms;
-$disabled-opacity: 0.3;
-$control-border: 0.0625em;
-$control-margin: 0.125em;
-$textbox-padding: 0.5em;
-$button-padding: 1.5em;
-
-@mixin border-box {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-@mixin control-size($padding-x) {
-  @include border-box;
-  height: 1.75em;
-  padding: 0 $padding-x;
-}
+﻿@import "defs";
+@import "colors";
 
 .modern {
   font-family: "Segoe UI", sans-serif;
@@ -29,28 +10,6 @@ $button-padding: 1.5em;
     font-size: 80%;
     font-style: italic;
     opacity: 0.7;
-  }
-
-  .noselect {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
-    user-select: none;
-  }
-
-  .block {
-    display: block;
-  }
-
-  .inline {
-    display: inline;
-  }
-
-  .inline-block {
-    display: inline-block;
   }
 
   b {
@@ -115,6 +74,7 @@ $button-padding: 1.5em;
   }
 
   a {
+    font-weight: 600;
     transition-property: color;
     transition-duration: $fade-out;
     transition-timing-function: linear;
@@ -137,6 +97,7 @@ $button-padding: 1.5em;
   button,
   input[type="button"],
   input[type="submit"] {
+    @include control-pointer;
     @include control-size($button-padding);
     border: 0;
     margin: $control-margin 0;
@@ -146,7 +107,7 @@ $button-padding: 1.5em;
     font-weight: 600;
     transition-property: background-color, color, opacity;
     transition-duration: $fade-out;
-    transition-timing-function: linear;
+    transition-timing-function: ease-out;
 
     &:enabled {
       &:hover,
@@ -207,9 +168,10 @@ $button-padding: 1.5em;
 
   input[type="checkbox"],
   input[type="radio"] {
-    display: none;
+    @include invisible;
 
     & + label {
+      @include control-pointer;
       margin: $control-margin 0;
 
       & > .check {
@@ -245,17 +207,24 @@ $button-padding: 1.5em;
     }
     
     &:checked + label > .check {
-      border-width: 0.2em;
+      &,
+      &.small,
+      &.medium {
+        border-width: 0.2em;
+      }
+  
+      &.large {
+        border-width: 0.25em;
+      }
     }
 
     &:enabled {
       & + label:hover > .check,
-      &:checked + label:hover > .check {
+      &:focus + label > .check {
         transition-duration: $fade-in;
       }
   
-      &:active + label > .check,
-      &:checked:active + label > .check {
+      &:active + label > .check{
         transition-duration: 0ms;
       }
     }
@@ -282,12 +251,17 @@ $button-padding: 1.5em;
     }
   }
 
+  .segmented-radio-group {
+
+  }
+
   select {
-    outline: 0;
     @include control-size($textbox-padding);
     padding-right: 2em;
     border-width: $control-border;
     border-style: solid;
+    outline: 0;
+    @include control-pointer;
     font-family: inherit;
     font-size: inherit;
     -moz-appearance: none;
@@ -318,7 +292,27 @@ $button-padding: 1.5em;
     }
   }
 
-  &, & .light, &.light {
-    @include modern-colors;
-  }
+  @include modern-colors;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.block {
+  display: block;
+}
+
+.inline {
+  display: inline;
+}
+
+.inline-block {
+  display: inline-block;
 }

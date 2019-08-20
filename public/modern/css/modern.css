@@ -2,29 +2,13 @@
   font-family: "Segoe UI", sans-serif;
   font-weight: 400;
   font-size: 16px;
+  background: #f0f0f0;
+  color: #444444;
 }
 .modern .tip {
   font-size: 80%;
   font-style: italic;
   opacity: 0.7;
-}
-.modern .noselect {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-}
-.modern .block {
-  display: block;
-}
-.modern .inline {
-  display: inline;
-}
-.modern .inline-block {
-  display: inline-block;
 }
 .modern b {
   font-weight: 600;
@@ -76,6 +60,7 @@
   left: -1em;
 }
 .modern a {
+  font-weight: 600;
   transition-property: color;
   transition-duration: 100ms;
   transition-timing-function: linear;
@@ -93,6 +78,7 @@
 .modern button,
 .modern input[type=button],
 .modern input[type=submit] {
+  cursor: pointer;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -106,7 +92,7 @@
   font-weight: 600;
   transition-property: background-color, color, opacity;
   transition-duration: 100ms;
-  transition-timing-function: linear;
+  transition-timing-function: ease-out;
 }
 .modern button:enabled:hover, .modern button:enabled:focus,
 .modern input[type=button]:enabled:hover,
@@ -173,10 +159,19 @@
 }
 .modern input[type=checkbox],
 .modern input[type=radio] {
-  display: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  opacity: 0;
+  z-index: -1;
 }
 .modern input[type=checkbox] + label,
 .modern input[type=radio] + label {
+  cursor: pointer;
   margin: 0.125em 0;
 }
 .modern input[type=checkbox] + label > .check,
@@ -212,18 +207,23 @@
   height: 1.25em;
   top: 0.25em;
 }
-.modern input[type=checkbox]:checked + label > .check,
-.modern input[type=radio]:checked + label > .check {
+.modern input[type=checkbox]:checked + label > .check, .modern input[type=checkbox]:checked + label > .check.small, .modern input[type=checkbox]:checked + label > .check.medium,
+.modern input[type=radio]:checked + label > .check,
+.modern input[type=radio]:checked + label > .check.small,
+.modern input[type=radio]:checked + label > .check.medium {
   border-width: 0.2em;
 }
-.modern input[type=checkbox]:enabled + label:hover > .check, .modern input[type=checkbox]:enabled:checked + label:hover > .check,
+.modern input[type=checkbox]:checked + label > .check.large,
+.modern input[type=radio]:checked + label > .check.large {
+  border-width: 0.25em;
+}
+.modern input[type=checkbox]:enabled + label:hover > .check, .modern input[type=checkbox]:enabled:focus + label > .check,
 .modern input[type=radio]:enabled + label:hover > .check,
-.modern input[type=radio]:enabled:checked + label:hover > .check {
+.modern input[type=radio]:enabled:focus + label > .check {
   transition-duration: 50ms;
 }
-.modern input[type=checkbox]:enabled:active + label > .check, .modern input[type=checkbox]:enabled:checked:active + label > .check,
-.modern input[type=radio]:enabled:active + label > .check,
-.modern input[type=radio]:enabled:checked:active + label > .check {
+.modern input[type=checkbox]:enabled:active + label > .check,
+.modern input[type=radio]:enabled:active + label > .check {
   transition-duration: 0ms;
 }
 .modern input[type=checkbox]:disabled + label,
@@ -240,7 +240,6 @@
   border-radius: 0.625em;
 }
 .modern select {
-  outline: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -249,6 +248,8 @@
   padding-right: 2em;
   border-width: 0.0625em;
   border-style: solid;
+  outline: 0;
+  cursor: pointer;
   font-family: inherit;
   font-size: inherit;
   -moz-appearance: none;
@@ -271,29 +272,21 @@
   font-size: 120%;
   font-weight: 300;
 }
-.modern, .modern .light, .modern.light {
-  background: #f0f0f0;
-  color: #444444;
-}
-.modern ul li::before, .modern .light ul li::before, .modern.light ul li::before {
+.modern ul li::before {
   background-color: #444444;
 }
-.modern a, .modern .light a, .modern.light a {
+.modern a {
+  color: #444444;
+}
+.modern a:hover, .modern a:focus {
   color: #919191;
 }
-.modern a:hover, .modern a:focus, .modern .light a:hover, .modern .light a:focus, .modern.light a:hover, .modern.light a:focus {
+.modern a:active {
   color: #c4c4c4;
-}
-.modern a:active, .modern .light a:active, .modern.light a:active {
-  color: #777777;
 }
 .modern button,
 .modern input[type=button],
-.modern input[type=submit], .modern .light button,
-.modern .light input[type=button],
-.modern .light input[type=submit], .modern.light button,
-.modern.light input[type=button],
-.modern.light input[type=submit] {
+.modern input[type=submit] {
   background-color: #d0d0d0;
   color: inherit;
 }
@@ -301,33 +294,17 @@
 .modern input[type=button]:enabled:hover,
 .modern input[type=button]:enabled:focus,
 .modern input[type=submit]:enabled:hover,
-.modern input[type=submit]:enabled:focus, .modern .light button:enabled:hover, .modern .light button:enabled:focus,
-.modern .light input[type=button]:enabled:hover,
-.modern .light input[type=button]:enabled:focus,
-.modern .light input[type=submit]:enabled:hover,
-.modern .light input[type=submit]:enabled:focus, .modern.light button:enabled:hover, .modern.light button:enabled:focus,
-.modern.light input[type=button]:enabled:hover,
-.modern.light input[type=button]:enabled:focus,
-.modern.light input[type=submit]:enabled:hover,
-.modern.light input[type=submit]:enabled:focus {
+.modern input[type=submit]:enabled:focus {
   background-color: #b7b7b7;
 }
 .modern button:enabled:active,
 .modern input[type=button]:enabled:active,
-.modern input[type=submit]:enabled:active, .modern .light button:enabled:active,
-.modern .light input[type=button]:enabled:active,
-.modern .light input[type=submit]:enabled:active, .modern.light button:enabled:active,
-.modern.light input[type=button]:enabled:active,
-.modern.light input[type=submit]:enabled:active {
+.modern input[type=submit]:enabled:active {
   background-color: #848484;
 }
 .modern button.primary:enabled,
 .modern input[type=button].primary:enabled,
-.modern input[type=submit].primary:enabled, .modern .light button.primary:enabled,
-.modern .light input[type=button].primary:enabled,
-.modern .light input[type=submit].primary:enabled, .modern.light button.primary:enabled,
-.modern.light input[type=button].primary:enabled,
-.modern.light input[type=submit].primary:enabled {
+.modern input[type=submit].primary:enabled {
   background-color: #444444;
   color: #ffffff;
 }
@@ -335,94 +312,86 @@
 .modern input[type=button].primary:enabled:hover,
 .modern input[type=button].primary:enabled:focus,
 .modern input[type=submit].primary:enabled:hover,
-.modern input[type=submit].primary:enabled:focus, .modern .light button.primary:enabled:hover, .modern .light button.primary:enabled:focus,
-.modern .light input[type=button].primary:enabled:hover,
-.modern .light input[type=button].primary:enabled:focus,
-.modern .light input[type=submit].primary:enabled:hover,
-.modern .light input[type=submit].primary:enabled:focus, .modern.light button.primary:enabled:hover, .modern.light button.primary:enabled:focus,
-.modern.light input[type=button].primary:enabled:hover,
-.modern.light input[type=button].primary:enabled:focus,
-.modern.light input[type=submit].primary:enabled:hover,
-.modern.light input[type=submit].primary:enabled:focus {
-  background-color: #6a6a6a;
+.modern input[type=submit].primary:enabled:focus {
+  background-color: #919191;
 }
 .modern button.primary:enabled:active,
 .modern input[type=button].primary:enabled:active,
-.modern input[type=submit].primary:enabled:active, .modern .light button.primary:enabled:active,
-.modern .light input[type=button].primary:enabled:active,
-.modern .light input[type=submit].primary:enabled:active, .modern.light button.primary:enabled:active,
-.modern.light input[type=button].primary:enabled:active,
-.modern.light input[type=submit].primary:enabled:active {
-  background-color: #aaaaaa;
+.modern input[type=submit].primary:enabled:active {
+  background-color: #c4c4c4;
 }
 .modern button.secondary,
 .modern input[type=button].secondary,
-.modern input[type=submit].secondary, .modern .light button.secondary,
-.modern .light input[type=button].secondary,
-.modern .light input[type=submit].secondary, .modern.light button.secondary,
-.modern.light input[type=button].secondary,
-.modern.light input[type=submit].secondary {
+.modern input[type=submit].secondary {
   border-color: #444444;
   background-color: #f0f0f0;
 }
 .modern input[type=text],
-.modern textarea, .modern .light input[type=text],
-.modern .light textarea, .modern.light input[type=text],
-.modern.light textarea {
+.modern textarea {
   background-color: #d0d0d0;
   color: inherit;
 }
 .modern input[type=checkbox] + label > .check,
-.modern input[type=radio] + label > .check, .modern .light input[type=checkbox] + label > .check,
-.modern .light input[type=radio] + label > .check, .modern.light input[type=checkbox] + label > .check,
-.modern.light input[type=radio] + label > .check {
+.modern input[type=radio] + label > .check {
   border-color: #d0d0d0;
   background-color: #d0d0d0;
 }
 .modern input[type=checkbox]:checked + label > .check,
-.modern input[type=radio]:checked + label > .check, .modern .light input[type=checkbox]:checked + label > .check,
-.modern .light input[type=radio]:checked + label > .check, .modern.light input[type=checkbox]:checked + label > .check,
-.modern.light input[type=radio]:checked + label > .check {
+.modern input[type=radio]:checked + label > .check {
   background-color: #444444;
 }
-.modern input[type=checkbox]:enabled + label:hover > .check,
-.modern input[type=radio]:enabled + label:hover > .check, .modern .light input[type=checkbox]:enabled + label:hover > .check,
-.modern .light input[type=radio]:enabled + label:hover > .check, .modern.light input[type=checkbox]:enabled + label:hover > .check,
-.modern.light input[type=radio]:enabled + label:hover > .check {
+.modern input[type=checkbox]:enabled:not(:checked) + label:hover > .check,
+.modern input[type=radio]:enabled:not(:checked) + label:hover > .check {
   background-color: #b7b7b7;
 }
-.modern input[type=checkbox]:enabled:active + label > .check,
-.modern input[type=radio]:enabled:active + label > .check, .modern .light input[type=checkbox]:enabled:active + label > .check,
-.modern .light input[type=radio]:enabled:active + label > .check, .modern.light input[type=checkbox]:enabled:active + label > .check,
-.modern.light input[type=radio]:enabled:active + label > .check {
-  background-color: #848484;
+.modern input[type=checkbox]:enabled:not(:checked):active + label > .check,
+.modern input[type=radio]:enabled:not(:checked):active + label > .check {
+  background-color: #5e5e5e;
 }
 .modern input[type=checkbox]:enabled:checked + label:hover > .check,
-.modern input[type=radio]:enabled:checked + label:hover > .check, .modern .light input[type=checkbox]:enabled:checked + label:hover > .check,
-.modern .light input[type=radio]:enabled:checked + label:hover > .check, .modern.light input[type=checkbox]:enabled:checked + label:hover > .check,
-.modern.light input[type=radio]:enabled:checked + label:hover > .check {
-  background-color: #6a6a6a;
+.modern input[type=radio]:enabled:checked + label:hover > .check {
+  border-color: #b7b7b7;
 }
 .modern input[type=checkbox]:enabled:checked:active + label > .check,
-.modern input[type=radio]:enabled:checked:active + label > .check, .modern .light input[type=checkbox]:enabled:checked:active + label > .check,
-.modern .light input[type=radio]:enabled:checked:active + label > .check, .modern.light input[type=checkbox]:enabled:checked:active + label > .check,
-.modern.light input[type=radio]:enabled:checked:active + label > .check {
-  background-color: #aaaaaa;
+.modern input[type=radio]:enabled:checked:active + label > .check {
+  background-color: #777777;
 }
-.modern select, .modern .light select, .modern.light select {
+.modern select {
   border-color: #d0d0d0;
   background-color: #f0f0f0;
   color: #444444;
   background-image: linear-gradient(45deg, transparent 50%, #444444 50%, #444444 75%, transparent 75%), linear-gradient(135deg, transparent 25%, #444444 25%, #444444 50%, transparent 50%);
 }
-.modern select:enabled:hover, .modern .light select:enabled:hover, .modern.light select:enabled:hover {
+.modern select:enabled:hover, .modern select:enabled:focus {
   background-color: #d0d0d0;
 }
-.modern select:enabled option, .modern .light select:enabled option, .modern.light select:enabled option {
+.modern select:enabled option {
   background-color: #f0f0f0;
 }
-.modern fieldset, .modern .light fieldset, .modern.light fieldset {
+.modern fieldset {
   border-color: #d0d0d0;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.block {
+  display: block;
+}
+
+.inline {
+  display: inline;
+}
+
+.inline-block {
+  display: inline-block;
 }
 
 /*# sourceMappingURL=modern.css.map */
