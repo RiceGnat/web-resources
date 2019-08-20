@@ -21,8 +21,7 @@ $on-secondary: #ffffff !default;
   a {
     color: $secondary;
 
-    &:hover,
-    &:focus {
+    &:hover {
       color: lighten($secondary, 30%);
     }
 
@@ -38,8 +37,7 @@ $on-secondary: #ffffff !default;
     color: inherit;
 
     &:enabled {
-      &:hover,
-      &:focus {
+      &:hover {
         background-color: darken($primary-alt, 10%);
       }
   
@@ -52,8 +50,7 @@ $on-secondary: #ffffff !default;
       background-color: $secondary;
       color: $on-secondary;
 
-      &:hover,
-      &:focus {
+      &:hover {
         background-color: lighten($secondary, 30%);
       }
 
@@ -115,8 +112,7 @@ $on-secondary: #ffffff !default;
     @include chevron-down($on-primary);
     
     &:enabled {
-      &:hover,
-      &:focus {
+      &:hover {
         background-color: $primary-alt;
       }
 

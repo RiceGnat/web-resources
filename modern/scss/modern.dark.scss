@@ -10,8 +10,7 @@ $on-secondary: $primary-alt !default;
   @include modern-colors;
 
   a {
-    &:hover,
-    &:focus {
+    &:hover {
       color: darken($secondary, 15%);
     }
 
@@ -24,8 +23,7 @@ $on-secondary: $primary-alt !default;
   input[type="button"],
   input[type="submit"] {
     &:enabled {
-      &:hover,
-      &:focus {
+      &:hover {
         background-color: lighten($primary, 10%);
       }
   
@@ -35,8 +33,7 @@ $on-secondary: $primary-alt !default;
     }
 
     &.primary:enabled {
-      &:hover,
-      &:focus {
+      &:hover {
         background-color: darken($secondary, 15%);
       }
 
