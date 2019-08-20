@@ -26,11 +26,6 @@ Note that radio buttons also use the `check` class to designate the visible chec
 <input type="radio" id="radio1" name="radio" />
 <label for="radio1"><span class="check small"></span>Small radio button</label>
 ```
-### Mobile appearance
-To ensure consistent font sizing on mobile browsers, include the following `<meta>` tag in the document's `<head>`.
-```html
-<meta name="viewport" content="width=device-width, initial-scale=1">
-```
 ## Convenience classes
 ### Headers
 Classes for header styles `h1` through `h6` are provided to apply header styling without using the header elements to help maintain semantic HTML.
