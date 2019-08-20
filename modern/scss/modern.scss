@@ -25,32 +25,32 @@
   }
 
   h1, .h1 {
-    font-size: 350%;
+    font-size: 3.5em;
     font-weight: 200;
   }
 
   h2, .h2 {
-    font-size: 300%;
+    font-size: 3em;
     font-weight: 300;
   }
 
   h3, .h3 {
-    font-size: 250%;
+    font-size: 2.5em;
     font-weight: 300;
   }
 
   h4, .h4 {
-    font-size: 200%;
+    font-size: 2em;
     font-weight: 300;
   }
 
   h5, .h5 {
-    font-size: 150%;
+    font-size: 1.5em;
     font-weight: 300;
   }
 
   h6, .h6 {
-    font-size: 125%;
+    font-size: 1.25em;
     font-weight: 300;
   }
 
@@ -219,6 +219,18 @@
 
     &:disabled + label > .check {
       opacity: $disabled-opacity;
+    }
+  }
+
+  input[type="checkbox"] {
+    &:indeterminate + label > .check {
+      border-top-width: 0.3em;
+      border-bottom-width: 0.3em;
+
+      &.large {
+        border-top-width: 0.35em;
+        border-bottom-width: 0.35em;
+      }
     }
   }
 

@@ -22,27 +22,27 @@
   margin: 0 0 0.5em 0;
 }
 .modern h1, .modern .h1 {
-  font-size: 350%;
+  font-size: 3.5em;
   font-weight: 200;
 }
 .modern h2, .modern .h2 {
-  font-size: 300%;
+  font-size: 3em;
   font-weight: 300;
 }
 .modern h3, .modern .h3 {
-  font-size: 250%;
+  font-size: 2.5em;
   font-weight: 300;
 }
 .modern h4, .modern .h4 {
-  font-size: 200%;
+  font-size: 2em;
   font-weight: 300;
 }
 .modern h5, .modern .h5 {
-  font-size: 150%;
+  font-size: 1.5em;
   font-weight: 300;
 }
 .modern h6, .modern .h6 {
-  font-size: 125%;
+  font-size: 1.25em;
   font-weight: 300;
 }
 .modern ul, .modern ol {
@@ -226,6 +226,14 @@
 .modern input[type=radio]:disabled + label > .check {
   opacity: 0.3;
 }
+.modern input[type=checkbox]:indeterminate + label > .check {
+  border-top-width: 0.3em;
+  border-bottom-width: 0.3em;
+}
+.modern input[type=checkbox]:indeterminate + label > .check.large {
+  border-top-width: 0.35em;
+  border-bottom-width: 0.35em;
+}
 .modern input[type=radio] + label > .check.small {
   border-radius: 0.375em;
 }
@@ -365,12 +373,12 @@
 .modern input[type=radio]:checked + label > .check {
   background-color: #444444;
 }
-.modern input[type=checkbox]:enabled:not(:checked) + label:hover > .check,
-.modern input[type=radio]:enabled:not(:checked) + label:hover > .check {
+.modern input[type=checkbox]:enabled:not(:checked):not(:indeterminate) + label:hover > .check,
+.modern input[type=radio]:enabled:not(:checked):not(:indeterminate) + label:hover > .check {
   background-color: #b7b7b7;
 }
-.modern input[type=checkbox]:enabled:not(:checked):active + label > .check,
-.modern input[type=radio]:enabled:not(:checked):active + label > .check {
+.modern input[type=checkbox]:enabled:not(:checked):not(:indeterminate):active + label > .check,
+.modern input[type=radio]:enabled:not(:checked):not(:indeterminate):active + label > .check {
   background-color: #5e5e5e;
 }
 .modern input[type=checkbox]:enabled:checked + label:hover > .check,
@@ -379,6 +387,15 @@
 }
 .modern input[type=checkbox]:enabled:checked:active + label > .check,
 .modern input[type=radio]:enabled:checked:active + label > .check {
+  background-color: #777777;
+}
+.modern input[type=checkbox]:indeterminate + label > .check {
+  background-color: #444444;
+}
+.modern input[type=checkbox]:indeterminate:enabled + label:hover > .check {
+  border-color: #b7b7b7;
+}
+.modern input[type=checkbox]:indeterminate:enabled:active + label > .check {
   background-color: #777777;
 }
 .modern select {

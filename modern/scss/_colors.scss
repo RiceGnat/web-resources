@@ -83,7 +83,7 @@ $on-secondary: #ffffff !default;
     }
 
     &:enabled {
-      &:not(:checked) {
+      &:not(:checked):not(:indeterminate) {
         & + label:hover > .check {
           background-color: darken($primary-alt, 10%);
         }
@@ -101,6 +101,22 @@ $on-secondary: #ffffff !default;
         &:active + label > .check {
           background-color: lighten($secondary, 20%);
         }
+      }
+    }
+  }
+
+  input[type="checkbox"]:indeterminate {
+    &  + label > .check {
+      background-color: $secondary;
+    }
+    
+    &:enabled {
+      & + label:hover > .check {
+        border-color: darken($primary-alt, 10%);
+      }
+
+      &:active + label > .check {
+        background-color: lighten($secondary, 20%);
       }
     }
   }

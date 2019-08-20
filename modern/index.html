@@ -9,16 +9,12 @@
   <link rel="stylesheet" href="css/modern.css" />
   <link rel="stylesheet" href="css/modern.dark.css" />
   <style>
-    html,
-    body {
+    html {
       height: 100%;
     }
 
-    html {
-      min-width: 658px;
-    }
-
     body {
+      min-height: 100%;
       margin: 0;
       display: flex;
       flex-direction: column;
@@ -50,6 +46,10 @@
 
       $("#toggleDark").on("click", function (e) {
         $(".main").toggleClass('dark');
+      });
+
+      $("#toggleIndeterminate").on("click", function (e) {
+        $(".controls input[type=checkbox]").prop('indeterminate', function (i, v) { return !v; });
       });
 
       $("a, button, input[type=button], input[type=submit]").on("click", function (e) {
@@ -100,6 +100,7 @@
             <label for="check2"><span class="check medium"></span>Medium checkbox</label>&emsp;
             <input type="checkbox" id="check3" />
             <label for="check3"><span class="check large"></span>Large checkbox</label>
+            <input type="button" id="toggleIndeterminate" value="Indeterminate" />
           </div>
           <div class="row">
             <input type="radio" id="radio1" name="radio" />
