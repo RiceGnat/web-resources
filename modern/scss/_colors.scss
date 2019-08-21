@@ -171,6 +171,7 @@ $active: lighten($secondary, 20%) !default;
     }
   }
 
+  .secondary,
   .tile {
     background-color: $secondary;
     color: $on-secondary;
