@@ -132,7 +132,9 @@
   background-color: #9d9d9d;
   border-color: #9d9d9d;
 }
-.modern .dark .tile, .modern.dark .tile {
+.modern .dark .secondary,
+.modern .dark .tile, .modern.dark .secondary,
+.modern.dark .tile {
   background-color: #d0d0d0;
   color: #222222;
 }

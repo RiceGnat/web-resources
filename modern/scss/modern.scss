@@ -77,7 +77,7 @@
     font-weight: 600;
 
     &:hover {
-      outline: 0;
+      //outline: 0;
       transition-duration: $fade-in;
     }
 
@@ -96,7 +96,6 @@
     @include control-size($button-padding);
     border: 0;
     margin: $control-margin 0;
-    outline: 0;
     font-family: inherit;
     font-size: inherit;
     font-weight: 600;
@@ -113,6 +112,10 @@
         transition-duration: 0ms;
         @include active-transform;
       }
+
+      &:focus {
+        @include outline-inner;
+      }
     }
 
     &:disabled {
@@ -122,6 +125,10 @@
 
   input[type="submit"] {
     font-weight: 600;
+
+    &:enabled:focus {
+      outline-width: $control-border;
+    }
   }
 
   *::-moz-focus-inner {
@@ -133,7 +140,6 @@
     @include control-size($textbox-padding);
     border: $control-border solid;
     margin: $control-margin 0;
-    outline: 0;
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
@@ -150,6 +156,10 @@
     }
     &:read-only {
       background-color: transparent;
+    }
+
+    &:enabled:focus {
+      @include outline-inner;
     }
     
     &:disabled {
@@ -212,6 +222,10 @@
       &:active + label > .check {
         transition-duration: 0ms;
       }
+
+      &:focus + label > .check {
+        @include outline-outer;
+      }
     }
 
     &:disabled + label > .check {
@@ -257,7 +271,6 @@
     padding-right: 2em;
     border-width: $control-border;
     border-style: solid;
-    outline: 0;
     font-family: inherit;
     font-size: inherit;
     -moz-appearance: none;
@@ -273,6 +286,10 @@
 
     &:enabled {
       @include control-pointer;
+
+      &:focus {
+        @include outline-inner;
+      }
     }
     
     &:disabled {

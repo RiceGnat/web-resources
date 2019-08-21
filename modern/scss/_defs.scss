@@ -6,6 +6,7 @@ $control-border: 0.0625em;
 $control-margin: 0.125em;
 $textbox-padding: 0.5em;
 $button-padding: 1.5em;
+$outline-weight: 0;
 
 @mixin control-pointer {
   cursor: pointer;
@@ -21,6 +22,19 @@ $button-padding: 1.5em;
   @include border-box;
   height: $control-height;
   padding: 0 $padding-x;
+}
+
+@mixin outline($weight) {
+  outline: $control-border * $weight solid;
+}
+
+@mixin outline-outer {
+  @include outline($outline-weight);
+}
+
+@mixin outline-inner {
+  @include outline-outer;
+  outline-offset: $control-border * -$outline-weight;
 }
 
 @mixin active-transform() {
