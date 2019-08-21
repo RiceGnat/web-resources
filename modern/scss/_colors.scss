@@ -45,7 +45,7 @@ $active: lighten($secondary, 20%) !default;
   input[type="button"],
   input[type="submit"] {
     background-color: $primary-alt;
-    color: inherit;
+    color: $on-primary;
 
     &:enabled {
       &:hover {

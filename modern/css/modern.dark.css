@@ -27,7 +27,7 @@
 .modern.dark input[type=button],
 .modern.dark input[type=submit] {
   background-color: #222222;
-  color: inherit;
+  color: #d0d0d0;
 }
 .modern .dark button:enabled:hover,
 .modern .dark input[type=button]:enabled:hover,

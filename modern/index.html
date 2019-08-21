@@ -61,10 +61,6 @@
       $("#toggleIndeterminate").on("click", function (e) {
         $(".controls input[type=checkbox]").prop('indeterminate', function (i, v) { return !v; });
       });
-
-      $("a, button, input[type=button], input[type=submit]").on("click", function (e) {
-        $(this).blur();
-      });
     });
   </script>
 </head>

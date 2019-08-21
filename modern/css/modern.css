@@ -115,6 +115,9 @@
 .modern input[type=submit] {
   font-weight: 600;
 }
+.modern *::-moz-focus-inner {
+  border: 0;
+}
 .modern input[type=text],
 .modern textarea {
   -webkit-box-sizing: border-box;
@@ -387,7 +390,7 @@
 .modern input[type=button],
 .modern input[type=submit] {
   background-color: #d0d0d0;
-  color: inherit;
+  color: #444444;
 }
 .modern button:enabled:hover,
 .modern input[type=button]:enabled:hover,
