@@ -6,7 +6,7 @@
   color: #444444;
 }
 .modern * {
-  transition-property: background-color, color, opacity, border;
+  transition-property: background-color, color, opacity, border, transform;
   transition-timing-function: linear;
   transition-duration: 100ms;
 }
@@ -105,6 +105,7 @@
 .modern input[type=button]:enabled:active,
 .modern input[type=submit]:enabled:active {
   transition-duration: 0ms;
+  transform: scale(0.98);
 }
 .modern button:disabled,
 .modern input[type=button]:disabled,
@@ -339,6 +340,13 @@
 .modern .tile.large {
   width: 12.25em;
   height: 12.25em;
+}
+.modern .tile.clickable {
+  cursor: pointer;
+}
+.modern .tile.clickable:active {
+  transition-duration: 0ms;
+  transform: scale(0.98);
 }
 .modern .tile-group {
   flex-shrink: 1;

@@ -8,7 +8,7 @@
   font-size: 16px;
 
   & * {
-    @include standard-transition(background-color, color, opacity, border);
+    @include standard-transition(background-color, color, opacity, border, transform);
   }
 
   b {
@@ -111,6 +111,7 @@
   
       &:active {
         transition-duration: 0ms;
+        @include active-transform;
       }
     }
 

@@ -89,6 +89,15 @@
       width: 12.25em;
       height: 12.25em;
     }
+
+    &.clickable {
+      @include control-pointer;
+
+      &:active {
+        transition-duration: 0ms;
+        @include active-transform;
+      }
+    }
   }
 
   .tile-group {
