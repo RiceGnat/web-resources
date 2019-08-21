@@ -1,4 +1,5 @@
 ﻿@import "defs";
+@import "classes";
 @import "colors";
 
 .modern {
@@ -8,11 +9,6 @@
 
   & * {
     @include standard-transition(background-color, color, opacity, border);
-  }
-
-  .tip {
-    font-size: 0.8em;
-    font-style: italic;
   }
 
   b {
@@ -290,138 +286,9 @@
       font-weight: 300;
     }
   }
-  
-  .segmented-radio-group {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
 
-    &.inline {
-      display: inline-flex;
-    }
-
-    label {
-      display: block;
-      border-width: $control-border;
-      border-style: solid;
-      padding: ($control-height - 1) / 2 - $control-border $button-padding;
-      line-height: 1em;
-      text-align: center;
-    }
-
-    label:not(:first-of-type) {
-      border-left: none;
-    }
-    
-    input {
-      &:enabled {
-        & + label {
-          @include control-pointer;
-        }
-  
-        & + label:hover {
-          transition-duration: $fade-in;
-        }
-  
-        &:active + label {
-          transition-duration: 0ms;
-        }
-      }
-
-      &:disabled + label {
-        opacity: $disabled-opacity;
-      }
-    }
-  }
-
-  .tile-container {
-    display: flex;
-    margin: -0.125em;
-    flex-wrap: wrap;
-  }
-
-  .tile,
-  .tile-group {
-    @include border-box;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    justify-content: flex-start;
-    border: 0;
-  }
-
-  .tile {
-    flex-shrink: 0;
-    margin: 0.125em;
-    padding: 0.5em;
-
-    &.small {
-      width: 2.875em;
-      height: 2.875em;
-    }
-
-    &, &.medium {
-      width: 6em;
-      height: 6em;
-    }
-
-    &.wide {
-      width: 12.25em;
-      height: 6em;
-    }
-
-    &.large {
-      width: 12.25em;
-      height: 12.25em;
-    }
-  }
-
-  .tile-group {
-    flex-shrink: 1;
-    flex-basis: 0;
-
-    &.small {
-      flex-basis: auto;
-      max-width: 3.25em;
-    }
-
-    &.medium {
-      flex-basis: auto;
-      max-width: 6.25em;
-    }
-
-    &.wide,
-    &.large {
-      flex-basis: auto;
-      max-width: 12.5em;
-    }
-  }
-
+  @include modern-classes;
   @include modern-colors;
 }
 
-.noselect {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-}
-
-.block {
-  display: block;
-}
-
-.inline {
-  display: inline;
-}
-
-.inline-block {
-  display: inline-block;
-}
-
-.flex {
-  display: flex;
-}
+@include general-classes;
