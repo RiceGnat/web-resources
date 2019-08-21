@@ -118,25 +118,19 @@
       }
     }
 
-    &.primary {
-      font-weight: 600;
-    }
-
-    &.secondary {
-      border-width: $control-border;
-
-      border-style: solid;
-    }
-
     &:disabled {
       opacity: $disabled-opacity;
     }
   }
 
+  input[type="submit"] {
+    font-weight: 600;
+  }
+
   input[type="text"],
   textarea {
     @include control-size($textbox-padding);
-    border: 0;
+    border: $control-border solid;
     margin: $control-margin 0;
     outline: 0;
     font-family: inherit;
@@ -175,8 +169,7 @@
         @include border-box;
         margin: 0 0.5em;
         
-        border-style: solid;
-        border-width: 0;
+        border: $control-border solid;
 
         &.small {
           width: 0.75em;
@@ -215,7 +208,7 @@
         transition-duration: $fade-in;
       }
   
-      &:active + label > .check{
+      &:active + label > .check {
         transition-duration: 0ms;
       }
     }
@@ -227,12 +220,16 @@
 
   input[type="checkbox"] {
     &:indeterminate + label > .check {
-      border-top-width: 0.3em;
-      border-bottom-width: 0.3em;
+      &.small {
+        border-width: 0.3em $control-border;
+      }
+
+      &, &.medium {
+        border-width: 0.4em $control-border;
+      }
 
       &.large {
-        border-top-width: 0.35em;
-        border-bottom-width: 0.35em;
+        border-width: 0.5em $control-border;
       }
     }
   }
@@ -337,6 +334,69 @@
     }
   }
 
+  .tile-container {
+    display: flex;
+    margin: -0.125em;
+    flex-wrap: wrap;
+  }
+
+  .tile,
+  .tile-group {
+    @include border-box;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    border: 0;
+  }
+
+  .tile {
+    flex-shrink: 0;
+    margin: 0.125em;
+    padding: 0.5em;
+
+    &.small {
+      width: 2.875em;
+      height: 2.875em;
+    }
+
+    &, &.medium {
+      width: 6em;
+      height: 6em;
+    }
+
+    &.wide {
+      width: 12.25em;
+      height: 6em;
+    }
+
+    &.large {
+      width: 12.25em;
+      height: 12.25em;
+    }
+  }
+
+  .tile-group {
+    flex-shrink: 1;
+    flex-basis: 0;
+
+    &.small {
+      flex-basis: auto;
+      max-width: 3.25em;
+    }
+
+    &.medium {
+      flex-basis: auto;
+      max-width: 6.25em;
+    }
+
+    &.wide,
+    &.large {
+      flex-basis: auto;
+      max-width: 12.5em;
+    }
+  }
+
   @include modern-colors;
 }
 
@@ -360,4 +420,8 @@
 
 .inline-block {
   display: inline-block;
+}
+
+.flex {
+  display: flex;
 }

@@ -2,91 +2,19 @@ $primary: #444444 !default;
 $primary-alt: #222222 !default;
 $secondary: #d0d0d0 !default;
 $on-secondary: $primary-alt !default;
+$hover: lighten($primary-alt, 30%) !default;
+$active: darken($secondary, 20%) !default;
 
 @import "colors";
 
-.modern.dark,
-.modern .dark {
-  @include modern-colors;
-
-  a {
-    &:hover {
-      color: darken($secondary, 15%);
-    }
-
-    &:active {
-      color: darken($secondary, 40%);
-    }
+.modern {
+  .dark,
+  &.dark {
+    @include modern-colors;
   }
 
-  button,
-  input[type="button"],
-  input[type="submit"] {
-    &:enabled {
-      &:hover {
-        background-color: lighten($primary, 10%);
-      }
-  
-      &:active {
-        background-color: lighten($primary, 20%);
-      }
-    }
-
-    &.primary:enabled {
-      &:hover {
-        background-color: darken($secondary, 15%);
-      }
-
-      &:active {
-        background-color: darken($secondary, 40%);
-      }
-    }
-  }
-
-  input[type="checkbox"],
-  input[type="radio"] {
-    &:enabled {
-      &:not(:checked) {
-        & + label:hover > .check {
-          background-color: lighten($primary-alt, 10%);
-        }
-    
-        &:active + label > .check {
-          background-color: darken($secondary, 20%);
-        }
-      } 
-  
-      &:checked {
-        & + label:hover > .check {
-          border-color: lighten($primary-alt, 10%);
-        }
-  
-        &:active + label > .check {
-          background-color: darken($secondary, 20%);
-        }
-      }
-    }
-  }
-
-  .segmented-radio-group input:enabled {
-    &:not(:checked) {
-      & + label:hover {
-        background-color: lighten($primary, 10%);
-      }
-  
-      &:active + label {
-        background-color: lighten($primary, 20%);
-      }
-    } 
-
-    &:checked {
-      & + label:hover {
-        background-color: darken($secondary, 15%);
-      }
-
-      &:active + label {
-        background-color: darken($secondary, 40%);
-      }
-    }
+  .dark.tile {
+    background-color: $primary;
+    color: $on-primary;
   }
 }

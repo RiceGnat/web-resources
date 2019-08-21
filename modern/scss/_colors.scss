@@ -3,6 +3,8 @@ $primary-alt: #d0d0d0 !default;
 $secondary: #444444 !default;
 $on-primary: $secondary !default;
 $on-secondary: #ffffff !default;
+$hover: darken($primary-alt, 10%) !default;
+$active: lighten($secondary, 20%) !default;
 
 @mixin chevron-down($color) {
   background-image:
@@ -31,11 +33,11 @@ $on-secondary: #ffffff !default;
     color: $secondary;
 
     &:hover {
-      color: lighten($secondary, 30%);
+      color: $hover;
     }
 
     &:active {
-      color: lighten($secondary, 50%);
+      color: $active;
     }
   }
     
@@ -47,45 +49,33 @@ $on-secondary: #ffffff !default;
 
     &:enabled {
       &:hover {
-        background-color: darken($primary-alt, 10%);
+        background-color: $hover;
       }
   
       &:active {
-        background-color: darken($primary-alt, 30%);
+        background-color: $active;
       }
     }
+  }
 
-    &.primary:enabled {
-      background-color: $secondary;
-      color: $on-secondary;
-
-      &:hover {
-        background-color: lighten($secondary, 30%);
-      }
-
-      &:active {
-        background-color: lighten($secondary, 50%);
-      }
-    }
-
-    &.secondary {
-      border-color: $on-primary;
-      background-color: $primary;
-    }
+  input[type="submit"]:enabled {
+    background-color: $secondary;
+    color: $on-secondary;
   }
 
   input[type="text"],
   textarea {
-    background-color: $primary-alt;
+    background-color: inherit;
     color: inherit;
+    border-color: $primary-alt;
     caret-color: $secondary;
   }
 
   input[type="checkbox"],
   input[type="radio"] {
     & + label > .check {
+      background-color: inherit;
       border-color: $primary-alt;
-      background-color: $primary-alt;
     }
 
     &:checked + label > .check {
@@ -93,23 +83,23 @@ $on-secondary: #ffffff !default;
     }
 
     &:enabled {
-      &:not(:checked):not(:indeterminate) {
-        & + label:hover > .check {
-          background-color: darken($primary-alt, 10%);
-        }
-    
-        &:active + label > .check {
-          background-color: lighten($secondary, 10%);
-        }
-      } 
+      & + label:hover > .check {
+        background-color: $hover;
+        border-color: $hover;
+      }
+  
+      &:active + label > .check {
+        background-color: $active;
+        border-color: $active;
+      }
   
       &:checked {
         & + label:hover > .check {
-          border-color: darken($primary-alt, 10%);
+          background-color: $secondary;
+          border-color: $hover;
         }
-  
         &:active + label > .check {
-          background-color: lighten($secondary, 20%);
+          background-color: $active;
         }
       }
     }
@@ -122,11 +112,12 @@ $on-secondary: #ffffff !default;
     
     &:enabled {
       & + label:hover > .check {
-        border-color: darken($primary-alt, 10%);
+        background-color: $secondary;
       }
 
       &:active + label > .check {
-        background-color: lighten($secondary, 20%);
+        background-color: $active;
+        border-color: $hover;
       }
     }
   }
@@ -139,7 +130,8 @@ $on-secondary: #ffffff !default;
     
     &:enabled {
       &:hover {
-        background-color: $primary-alt;
+        border-color: $hover;
+        background-color: $hover;
       }
 
       option {
@@ -162,29 +154,25 @@ $on-secondary: #ffffff !default;
       &:checked + label {
         background-color: $secondary;
         color: $on-secondary;
+        border-color: $secondary;
       }
 
       &:enabled {
-        &:not(:checked) {
-          & + label:hover {
-            background-color: darken($primary-alt, 10%);
-          }
-      
-          &:active + label {
-            background-color: darken($primary-alt, 30%);
-          }
-        } 
+        & + label:hover {
+          background-color: $hover;
+          border-color: $hover;
+        }
     
-        &:checked {
-          & + label:hover {
-            background-color: lighten($secondary, 30%);
-          }
-    
-          &:active + label {
-            background-color: lighten($secondary, 50%);
-          }
+        &:active + label {
+          background-color: $active;
+          border-color: $active;
         }
       }
     }
+  }
+
+  .tile {
+    background-color: $secondary;
+    color: $on-secondary;
   }
 }

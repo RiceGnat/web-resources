@@ -37,16 +37,25 @@
     .row {
       margin-bottom: 1em;
     }
+
+    .tiles {
+      background: #222222;
+    }
   </style>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script>
     $(function () {
       $("#toggleDisabled").on("click", function (e) {
-        $(".controls").prop('disabled', function (i, v) { return !v; });
+        let d;
+        $(".controls").prop('disabled', function (i, v) {
+          d = v;
+          return !v;
+        });
+        $(this).text(`${d ? 'Disable' : 'Enable'} controls`)
       });
 
       $("#toggleDark").on("click", function (e) {
-        $(".main").toggleClass('dark');
+        $("body").toggleClass('dark');
       });
 
       $("#toggleIndeterminate").on("click", function (e) {
@@ -124,15 +133,26 @@
         </fieldset>
       </div>
       <div class="row">
-        <button id="toggleDisabled">Toggle</button> disabled state
+        <button type="button" id="toggleDisabled">Disable controls</button>
       </div>
     </div>
   </div>
-  <div class="dark">
-    <div class="container">
-      <h5 class="inline-block">Dark theme <span class="tip">modern.dark.css</span></h5>
-      <div class="row">
-        <input id="toggleDark" type="button" value="Toggle" />
+  <div class="tiles noselect">
+    <div class="row tile-container">
+      <div class="tile large"><h4>Tiles</h4></div>
+      <div class="tile-group">
+        <div class="tile small"></div>
+        <div class="tile small"></div>
+        <div class="tile medium"></div>
+        <div class="tile small"></div>
+        <div class="tile small"></div>
+      </div>
+      <div class="tile-group">
+        <div class="tile wide dark" id="toggleDark">
+          <h5>Dark theme <span class="tip">modern.dark.css</span></h5>
+        </div>
+        <div class="tile medium"></div>
+        <div class="tile medium"></div>
       </div>
     </div>
   </div>

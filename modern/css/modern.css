@@ -110,21 +110,13 @@
 .modern input[type=submit]:enabled:active {
   transition-duration: 0ms;
 }
-.modern button.primary,
-.modern input[type=button].primary,
-.modern input[type=submit].primary {
-  font-weight: 600;
-}
-.modern button.secondary,
-.modern input[type=button].secondary,
-.modern input[type=submit].secondary {
-  border-width: 0.0625em;
-  border-style: solid;
-}
 .modern button:disabled,
 .modern input[type=button]:disabled,
 .modern input[type=submit]:disabled {
   opacity: 0.5;
+}
+.modern input[type=submit] {
+  font-weight: 600;
 }
 .modern input[type=text],
 .modern textarea {
@@ -133,7 +125,7 @@
   box-sizing: border-box;
   height: 1.75em;
   padding: 0 0.5em;
-  border: 0;
+  border: 0.0625em solid;
   margin: 0.125em 0;
   outline: 0;
   font-family: inherit;
@@ -182,8 +174,7 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0 0.5em;
-  border-style: solid;
-  border-width: 0;
+  border: 0.0625em solid;
 }
 .modern input[type=checkbox] + label > .check.small,
 .modern input[type=radio] + label > .check.small {
@@ -228,13 +219,14 @@
 .modern input[type=radio]:disabled + label > .check {
   opacity: 0.5;
 }
-.modern input[type=checkbox]:indeterminate + label > .check {
-  border-top-width: 0.3em;
-  border-bottom-width: 0.3em;
+.modern input[type=checkbox]:indeterminate + label > .check.small {
+  border-width: 0.3em 0.0625em;
+}
+.modern input[type=checkbox]:indeterminate + label > .check, .modern input[type=checkbox]:indeterminate + label > .check.medium {
+  border-width: 0.4em 0.0625em;
 }
 .modern input[type=checkbox]:indeterminate + label > .check.large {
-  border-top-width: 0.35em;
-  border-bottom-width: 0.35em;
+  border-width: 0.5em 0.0625em;
 }
 .modern input[type=radio] + label > .check.small {
   border-radius: 0.375em;
@@ -311,6 +303,59 @@
 .modern .segmented-radio-group input:disabled + label {
   opacity: 0.5;
 }
+.modern .tile-container {
+  display: flex;
+  margin: -0.125em;
+  flex-wrap: wrap;
+}
+.modern .tile,
+.modern .tile-group {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: flex-start;
+  border: 0;
+}
+.modern .tile {
+  flex-shrink: 0;
+  margin: 0.125em;
+  padding: 0.5em;
+}
+.modern .tile.small {
+  width: 2.875em;
+  height: 2.875em;
+}
+.modern .tile, .modern .tile.medium {
+  width: 6em;
+  height: 6em;
+}
+.modern .tile.wide {
+  width: 12.25em;
+  height: 6em;
+}
+.modern .tile.large {
+  width: 12.25em;
+  height: 12.25em;
+}
+.modern .tile-group {
+  flex-shrink: 1;
+  flex-basis: 0;
+}
+.modern .tile-group.small {
+  flex-basis: auto;
+  max-width: 3.25em;
+}
+.modern .tile-group.medium {
+  flex-basis: auto;
+  max-width: 6.25em;
+}
+.modern .tile-group.wide, .modern .tile-group.large {
+  flex-basis: auto;
+  max-width: 12.5em;
+}
 .modern .tip {
   color: rgba(68, 68, 68, 0.7);
 }
@@ -325,10 +370,10 @@
   color: #444444;
 }
 .modern a:hover {
-  color: #919191;
+  color: #b7b7b7;
 }
 .modern a:active {
-  color: #c4c4c4;
+  color: #777777;
 }
 .modern button,
 .modern input[type=button],
@@ -344,55 +389,41 @@
 .modern button:enabled:active,
 .modern input[type=button]:enabled:active,
 .modern input[type=submit]:enabled:active {
-  background-color: #848484;
+  background-color: #777777;
 }
-.modern button.primary:enabled,
-.modern input[type=button].primary:enabled,
-.modern input[type=submit].primary:enabled {
+.modern input[type=submit]:enabled {
   background-color: #444444;
   color: #ffffff;
 }
-.modern button.primary:enabled:hover,
-.modern input[type=button].primary:enabled:hover,
-.modern input[type=submit].primary:enabled:hover {
-  background-color: #919191;
-}
-.modern button.primary:enabled:active,
-.modern input[type=button].primary:enabled:active,
-.modern input[type=submit].primary:enabled:active {
-  background-color: #c4c4c4;
-}
-.modern button.secondary,
-.modern input[type=button].secondary,
-.modern input[type=submit].secondary {
-  border-color: #444444;
-  background-color: #f0f0f0;
-}
 .modern input[type=text],
 .modern textarea {
-  background-color: #d0d0d0;
+  background-color: inherit;
   color: inherit;
+  border-color: #d0d0d0;
   caret-color: #444444;
 }
 .modern input[type=checkbox] + label > .check,
 .modern input[type=radio] + label > .check {
+  background-color: inherit;
   border-color: #d0d0d0;
-  background-color: #d0d0d0;
 }
 .modern input[type=checkbox]:checked + label > .check,
 .modern input[type=radio]:checked + label > .check {
   background-color: #444444;
 }
-.modern input[type=checkbox]:enabled:not(:checked):not(:indeterminate) + label:hover > .check,
-.modern input[type=radio]:enabled:not(:checked):not(:indeterminate) + label:hover > .check {
+.modern input[type=checkbox]:enabled + label:hover > .check,
+.modern input[type=radio]:enabled + label:hover > .check {
   background-color: #b7b7b7;
+  border-color: #b7b7b7;
 }
-.modern input[type=checkbox]:enabled:not(:checked):not(:indeterminate):active + label > .check,
-.modern input[type=radio]:enabled:not(:checked):not(:indeterminate):active + label > .check {
-  background-color: #5e5e5e;
+.modern input[type=checkbox]:enabled:active + label > .check,
+.modern input[type=radio]:enabled:active + label > .check {
+  background-color: #777777;
+  border-color: #777777;
 }
 .modern input[type=checkbox]:enabled:checked + label:hover > .check,
 .modern input[type=radio]:enabled:checked + label:hover > .check {
+  background-color: #444444;
   border-color: #b7b7b7;
 }
 .modern input[type=checkbox]:enabled:checked:active + label > .check,
@@ -403,10 +434,11 @@
   background-color: #444444;
 }
 .modern input[type=checkbox]:indeterminate:enabled + label:hover > .check {
-  border-color: #b7b7b7;
+  background-color: #444444;
 }
 .modern input[type=checkbox]:indeterminate:enabled:active + label > .check {
   background-color: #777777;
+  border-color: #b7b7b7;
 }
 .modern select {
   border-color: #d0d0d0;
@@ -415,7 +447,8 @@
   background-image: linear-gradient(45deg, transparent 50%, #444444 50%, #444444 75%, transparent 75%), linear-gradient(135deg, transparent 25%, #444444 25%, #444444 50%, transparent 50%);
 }
 .modern select:enabled:hover {
-  background-color: #d0d0d0;
+  border-color: #b7b7b7;
+  background-color: #b7b7b7;
 }
 .modern select:enabled option {
   background-color: #f0f0f0;
@@ -430,18 +463,19 @@
 .modern .segmented-radio-group input:checked + label {
   background-color: #444444;
   color: #ffffff;
+  border-color: #444444;
 }
-.modern .segmented-radio-group input:enabled:not(:checked) + label:hover {
+.modern .segmented-radio-group input:enabled + label:hover {
   background-color: #b7b7b7;
+  border-color: #b7b7b7;
 }
-.modern .segmented-radio-group input:enabled:not(:checked):active + label {
-  background-color: #848484;
+.modern .segmented-radio-group input:enabled:active + label {
+  background-color: #777777;
+  border-color: #777777;
 }
-.modern .segmented-radio-group input:enabled:checked + label:hover {
-  background-color: #919191;
-}
-.modern .segmented-radio-group input:enabled:checked:active + label {
-  background-color: #c4c4c4;
+.modern .tile {
+  background-color: #444444;
+  color: #ffffff;
 }
 
 .noselect {
@@ -464,6 +498,10 @@
 
 .inline-block {
   display: inline-block;
+}
+
+.flex {
+  display: flex;
 }
 
 /*# sourceMappingURL=modern.css.map */
