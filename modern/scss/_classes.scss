@@ -24,22 +24,34 @@
       text-align: center;
     }
 
-    label:not(:first-of-type) {
-      border-left: none;
+    input:not(:first-of-type) {
+      & + label {
+        // cheat to collapse borders
+        margin-left: -$control-border;
+      }
     }
     
     input {
+      &:checked + label {
+        z-index: 1;
+      }
+
       &:enabled {
         & + label {
           @include control-pointer;
-        }
-  
-        & + label:hover {
-          transition-duration: $fade-in;
+
+          &:hover {
+            transition-duration: $fade-in;
+          }
         }
   
         &:active + label {
           transition-duration: 0ms;
+        }
+
+        &:focus + label {
+          @include outline-outer;
+          z-index: 1;
         }
       }
 

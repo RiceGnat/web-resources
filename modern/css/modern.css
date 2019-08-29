@@ -109,8 +109,8 @@
 .modern button:enabled:focus,
 .modern input[type=button]:enabled:focus,
 .modern input[type=submit]:enabled:focus {
-  outline: 0em solid;
-  outline-offset: 0em;
+  outline: 0.125em solid;
+  outline-offset: 0.0625em;
 }
 .modern button:disabled,
 .modern input[type=button]:disabled,
@@ -119,9 +119,6 @@
 }
 .modern input[type=submit] {
   font-weight: 600;
-}
-.modern input[type=submit]:enabled:focus {
-  outline-width: 0.0625em;
 }
 .modern *::-moz-focus-inner {
   border: 0;
@@ -155,8 +152,8 @@
 }
 .modern input[type=text]:enabled:focus,
 .modern textarea:enabled:focus {
-  outline: 0em solid;
-  outline-offset: 0em;
+  outline: 0.125em solid;
+  outline-offset: 0.0625em;
 }
 .modern input[type=text]:disabled,
 .modern textarea:disabled {
@@ -229,7 +226,8 @@
 }
 .modern input[type=checkbox]:enabled:focus + label > .check,
 .modern input[type=radio]:enabled:focus + label > .check {
-  outline: 0em solid;
+  outline: 0.125em solid;
+  outline-offset: 0.0625em;
 }
 .modern input[type=checkbox]:disabled + label > .check,
 .modern input[type=radio]:disabled + label > .check {
@@ -275,8 +273,8 @@
   cursor: pointer;
 }
 .modern select:enabled:focus {
-  outline: 0em solid;
-  outline-offset: 0em;
+  outline: 0.125em solid;
+  outline-offset: 0.0625em;
 }
 .modern select:disabled {
   opacity: 0.5;
@@ -311,8 +309,11 @@
   line-height: 1em;
   text-align: center;
 }
-.modern .segmented-radio-group label:not(:first-of-type) {
-  border-left: none;
+.modern .segmented-radio-group input:not(:first-of-type) + label {
+  margin-left: -0.0625em;
+}
+.modern .segmented-radio-group input:checked + label {
+  z-index: 1;
 }
 .modern .segmented-radio-group input:enabled + label {
   cursor: pointer;
@@ -322,6 +323,11 @@
 }
 .modern .segmented-radio-group input:enabled:active + label {
   transition-duration: 0ms;
+}
+.modern .segmented-radio-group input:enabled:focus + label {
+  outline: 0.125em solid;
+  outline-offset: 0.0625em;
+  z-index: 1;
 }
 .modern .segmented-radio-group input:disabled + label {
   opacity: 0.5;
@@ -425,6 +431,9 @@
   background-color: #444444;
   color: #ffffff;
 }
+.modern input[type=submit]:enabled:focus {
+  outline-color: #444444;
+}
 .modern input[type=text],
 .modern textarea {
   background-color: inherit;
@@ -502,6 +511,9 @@
 .modern .segmented-radio-group input:enabled:active + label {
   background-color: #777777;
   border-color: #777777;
+}
+.modern .segmented-radio-group input:enabled:focus + label {
+  outline-color: #444444;
 }
 .modern .secondary,
 .modern .tile {
