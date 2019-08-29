@@ -1,9 +1,11 @@
+$class: "default" !default;
 $primary: #f0f0f0 !default;
 $primary-alt: #d0d0d0 !default;
 $secondary: #444444 !default;
 $on-primary: $secondary !default;
 $on-secondary: #ffffff !default;
 $hover: darken($primary-alt, 10%) !default;
+$hover-secondary: lighten($secondary, 10%) !default;
 $active: lighten($secondary, 20%) !default;
 
 @mixin chevron-down($color) {
@@ -12,176 +14,216 @@ $active: lighten($secondary, 20%) !default;
     linear-gradient(135deg, transparent 25%, $color 25%, $color 50%, transparent 50%);
 }
 
-@mixin modern-colors {
+@mixin wrap-class {
+  @if $class != "default" {
+    #{$class}, &#{$class} {
+      @content;
+    }
+  }
+  @else {
+    @content;
+  }
+}
+
+@mixin with-class($selector) {
+  @at-root .modern #{selector-unify($selector, $class)} {
+    @content;
+  }
+}
+
+@mixin primary-colors {
   background: $primary;
   color: $on-primary;
+  border-color: $primary;
+}
 
-  .tip {
-    color: rgba($on-primary, 0.7);
-  }
+@mixin secondary-colors {
+  background-color: $secondary;
+  color: $on-secondary;
+  border-color: $secondary;
+}
 
-  ::selection {
-    background-color: rgba($secondary, 0.997);
-    color: $on-secondary;
-  }
-
-  ul li::before {
-    background-color: $on-primary;
-  }
-
-  a {
-    color: $secondary;
-
-    &:hover {
-      color: $hover;
-    }
-
-    &:active {
-      color: $active;
-    }
-  }
+@mixin modern-colors {
+  .modern {
+    @include wrap-class {
+      @include primary-colors;
+      
+      .tip {
+        color: rgba($on-primary, 0.7);
+      }
     
-  button,
-  input[type="button"],
-  input[type="submit"] {
-    background-color: $primary-alt;
-    color: $on-primary;
-
-    &:enabled {
-      &:hover {
-        background-color: $hover;
-      }
-  
-      &:active {
-        background-color: $active;
-      }
-    }
-  }
-
-  input[type="submit"]:enabled {
-    background-color: $secondary;
-    color: $on-secondary;
-
-    &:focus {
-      outline-color: $secondary;
-    }
-  }
-
-  input[type="text"],
-  textarea {
-    background-color: inherit;
-    color: inherit;
-    border-color: $primary-alt;
-    caret-color: $secondary;
-  }
-
-  input[type="checkbox"],
-  input[type="radio"] {
-    & + label > .check {
-      background-color: inherit;
-      border-color: $primary-alt;
-    }
-
-    &:checked + label > .check {
-      background-color: $secondary;
-    }
-
-    &:enabled {
-      & + label:hover > .check {
-        background-color: $hover;
-        border-color: $hover;
-      }
-  
-      &:active + label > .check {
-        background-color: $active;
-        border-color: $active;
-      }
-  
-      &:checked {
-        & + label:hover > .check {
-          background-color: $secondary;
-          border-color: $hover;
-        }
-        &:active + label > .check {
-          background-color: $active;
-        }
-      }
-    }
-  }
-
-  input[type="checkbox"]:indeterminate {
-    &  + label > .check {
-      background-color: $secondary;
-    }
-    
-    &:enabled {
-      & + label:hover > .check {
-        background-color: $secondary;
-      }
-
-      &:active + label > .check {
-        background-color: $active;
-        border-color: $hover;
-      }
-    }
-  }
-    
-  select {
-    border-color: $primary-alt;
-    background-color: $primary;
-    color: $on-primary;
-    @include chevron-down($on-primary);
-    
-    &:enabled {
-      &:hover {
-        border-color: $hover;
-        background-color: $hover;
-      }
-
-      option {
-        background-color: $primary;
-      }
-    }
-  }
-
-  fieldset {
-    border-color: $primary-alt;
-  }
-
-  .segmented-radio-group {
-    label {
-      background-color: $primary;
-      border-color: $primary-alt;
-    }
-
-    input {
-      &:checked + label {
-        background-color: $secondary;
+      ::selection {
+        background-color: rgba($secondary, 0.997);
         color: $on-secondary;
-        border-color: $secondary;
       }
-
-      &:enabled {
-        & + label:hover {
-          background-color: $hover;
-          border-color: $hover;
+    
+      ul li::before {
+        background-color: $on-primary;
+      }
+    
+      a {
+        color: $secondary;
+    
+        &:hover {
+          color: $hover;
         }
     
-        &:active + label {
-          background-color: $active;
-          border-color: $active;
+        &:active {
+          color: $active;
+        }
+      }
+        
+      button,
+      input[type="button"],
+      input[type="submit"] {
+        background-color: $primary-alt;
+        color: $on-primary;
+    
+        &:enabled {
+          &:hover {
+            background-color: $hover;
+          }
+      
+          &:active {
+            background-color: $active;
+          }
+        }
+      }
+    
+      input[type="submit"]:enabled {
+        @include secondary-colors;
+    
+        &:hover {
+          background-color: $hover-secondary;
         }
 
-        &:focus + label {
+        &:active {
+          background-color: $active;
+        }
+
+        &:focus {
           outline-color: $secondary;
         }
       }
-    }
-  }
+    
+      input[type="text"],
+      textarea {
+        background-color: inherit;
+        color: inherit;
+        border-color: $primary-alt;
+        caret-color: $secondary;
+      }
+    
+      input[type="checkbox"],
+      input[type="radio"] {
+        & + label > .check {
+          background-color: inherit;
+          border-color: $primary-alt;
+        }
+    
+        &:checked + label > .check {
+          background-color: $secondary;
+        }
+    
+        &:enabled {
+          & + label:hover > .check {
+            background-color: $hover;
+            border-color: $hover;
+          }
+      
+          &:active + label > .check {
+            background-color: $active;
+            border-color: $active;
+          }
+      
+          &:checked {
+            & + label:hover > .check {
+              background-color: $secondary;
+              border-color: $hover;
+            }
+            &:active + label > .check {
+              background-color: $active;
+            }
+          }
+        }
+      }
+    
+      input[type="checkbox"]:indeterminate {
+        &  + label > .check {
+          background-color: $secondary;
+        }
+        
+        &:enabled {
+          & + label:hover > .check {
+            background-color: $secondary;
+          }
+    
+          &:active + label > .check {
+            background-color: $active;
+            border-color: $hover;
+          }
+        }
+      }
+        
+      select {
+        border-color: $primary-alt;
+        background-color: $primary;
+        color: $on-primary;
+        @include chevron-down($on-primary);
+        
+        &:enabled {
+          &:hover {
+            border-color: $hover;
+            background-color: $hover;
+          }
+    
+          option {
+            background-color: $primary;
+          }
+        }
+      }
+    
+      fieldset {
+        border-color: $primary-alt;
+      }
+    
+      .segmented-radio-group {
+        label {
+          background-color: $primary;
+          border-color: $primary-alt;
+        }
+    
+        input {
+          &:checked + label {
+            @include secondary-colors;
+          }
+    
+          &:enabled {
+            & + label:hover {
+              background-color: $hover;
+              border-color: $hover;
+            }
+        
+            &:active + label {
+              background-color: $active;
+              border-color: $active;
+            }
+    
+            &:focus + label {
+              outline-color: $secondary;
+            }
+          }
+        }
+      }
 
-  .secondary,
-  .tile {
-    background-color: $secondary;
-    color: $on-secondary;
+      .secondary,
+      .tile {
+        @include secondary-colors;
+      }
+     
+      @include with-class(".tile") {
+        @include primary-colors();
+      }
+    }
   }
 }

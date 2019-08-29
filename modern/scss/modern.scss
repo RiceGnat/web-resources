@@ -2,6 +2,8 @@
 @import "classes";
 @import "colors";
 
+@include general-classes;
+
 .modern {
   font-family: "Segoe UI", sans-serif;
   font-weight: 400;
@@ -125,9 +127,6 @@
 
   input[type="submit"] {
     font-weight: 600;
-
-    &:enabled:focus {
-    }
   }
 
   *::-moz-focus-inner {
@@ -247,7 +246,6 @@
       }
     }
   }
-
   input[type="radio"] {
     & + label {
       & > .check.small {
@@ -309,7 +307,6 @@
   }
 
   @include modern-classes;
-  @include modern-colors;
 }
 
-@include general-classes;
+@include modern-colors;

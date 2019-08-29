@@ -41,6 +41,11 @@
     .tiles {
       background: #222222;
     }
+
+    :focus,
+    :focus + label {
+      outline: 0 !important;
+    }
   </style>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script>
@@ -143,9 +148,9 @@
         <div class="tile small"></div>
       </div>
       <div class="tile-group">
-        <div class="tile wide clickable dark" id="toggleDark">
+        <button type="button" class="tile wide dark" id="toggleDark">
           <h6>Dark theme <span class="tip">modern.dark.css</span></h6>
-        </div>
+        </button>
         <div class="tile medium"></div>
         <div class="tile medium"></div>
       </div>

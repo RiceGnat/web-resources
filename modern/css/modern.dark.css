@@ -1,6 +1,7 @@
 .modern .dark, .modern.dark {
   background: #444444;
   color: #d0d0d0;
+  border-color: #444444;
 }
 .modern .dark .tip, .modern.dark .tip {
   color: rgba(208, 208, 208, 0.7);
@@ -46,6 +47,13 @@
 .modern .dark input[type=submit]:enabled, .modern.dark input[type=submit]:enabled {
   background-color: #d0d0d0;
   color: #222222;
+  border-color: #d0d0d0;
+}
+.modern .dark input[type=submit]:enabled:hover, .modern.dark input[type=submit]:enabled:hover {
+  background-color: #eaeaea;
+}
+.modern .dark input[type=submit]:enabled:active, .modern.dark input[type=submit]:enabled:active {
+  background-color: #9d9d9d;
 }
 .modern .dark input[type=submit]:enabled:focus, .modern.dark input[type=submit]:enabled:focus {
   outline-color: #d0d0d0;
@@ -143,10 +151,16 @@
 .modern.dark .tile {
   background-color: #d0d0d0;
   color: #222222;
+  border-color: #d0d0d0;
 }
-.modern .dark.tile {
-  background-color: #444444;
+.modern .tile.dark {
+  background: #444444;
   color: #d0d0d0;
+  border-color: #444444;
+}
+
+.modern button.tile.dark:enabled:hover {
+  background-color: #515151;
 }
 
 /*# sourceMappingURL=modern.dark.css.map */

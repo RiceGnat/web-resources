@@ -1,3 +1,4 @@
+$class: ".dark";
 $primary: #444444 !default;
 $primary-alt: #222222 !default;
 $secondary: #d0d0d0 !default;
@@ -7,14 +8,10 @@ $active: darken($secondary, 20%) !default;
 
 @import "colors";
 
-.modern {
-  .dark,
-  &.dark {
-    @include modern-colors;
-  }
+@include modern-colors;
 
-  .dark.tile {
-    background-color: $primary;
-    color: $on-primary;
-  }
+@include with-class("button.tile:enabled") {
+   &:hover {
+     background-color: lighten($primary, 5%);
+   }
 }
