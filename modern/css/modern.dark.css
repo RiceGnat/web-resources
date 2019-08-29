@@ -24,8 +24,10 @@
 }
 .modern .dark input,
 .modern .dark textarea,
+.modern .dark select,
 .modern .dark button[type=reset], .modern.dark input,
 .modern.dark textarea,
+.modern.dark select,
 .modern.dark button[type=reset] {
   background-color: inherit;
   color: inherit;
@@ -73,6 +75,24 @@
 .modern .dark input[type=submit]:enabled:focus, .modern.dark input[type=submit]:enabled:focus {
   outline-color: #d0d0d0;
 }
+.modern .dark input[type=range]::-webkit-slider-runnable-track, .modern.dark input[type=range]::-webkit-slider-runnable-track {
+  border-color: #222222;
+}
+.modern .dark input[type=range]::-moz-range-track, .modern.dark input[type=range]::-moz-range-track {
+  border-color: #222222;
+}
+.modern .dark input[type=range]::-ms-track, .modern.dark input[type=range]::-ms-track {
+  border-color: #222222;
+}
+.modern .dark input[type=range]::-webkit-slider-thumb, .modern.dark input[type=range]::-webkit-slider-thumb {
+  background-color: #d0d0d0;
+}
+.modern .dark input[type=range]::-moz-range-thumb, .modern.dark input[type=range]::-moz-range-thumb {
+  background-color: #d0d0d0;
+}
+.modern .dark input[type=range]::-ms-thumb, .modern.dark input[type=range]::-ms-thumb {
+  background-color: #d0d0d0;
+}
 .modern .dark input[type=checkbox] + label > .check,
 .modern .dark input[type=radio] + label > .check, .modern.dark input[type=checkbox] + label > .check,
 .modern.dark input[type=radio] + label > .check {
@@ -118,9 +138,6 @@
   border-color: #6f6f6f;
 }
 .modern .dark select, .modern.dark select {
-  border-color: #222222;
-  background-color: #444444;
-  color: #d0d0d0;
   background-image: linear-gradient(45deg, transparent 50%, #d0d0d0 50%, #d0d0d0 75%, transparent 75%), linear-gradient(135deg, transparent 25%, #d0d0d0 25%, #d0d0d0 50%, transparent 50%);
 }
 .modern .dark select:enabled:hover, .modern.dark select:enabled:hover {

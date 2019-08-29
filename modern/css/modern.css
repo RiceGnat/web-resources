@@ -178,6 +178,71 @@
 }
 .modern input[type=range] {
   vertical-align: top;
+  border: 0;
+  -webkit-appearance: none;
+  /* Hides the slider so that custom slider can be made */
+  background: transparent;
+}
+.modern input[type=range]::-webkit-slider-runnable-track {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 0.25em;
+  border-width: 0.0625em;
+  border-style: solid;
+  cursor: pointer;
+}
+.modern input[type=range]::-moz-range-track {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 0.25em;
+  border-width: 0.0625em;
+  border-style: solid;
+  cursor: pointer;
+}
+.modern input[type=range]::-ms-track {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 0.25em;
+  border-width: 0.0625em;
+  border-style: solid;
+  cursor: pointer;
+}
+.modern input[type=range]::-webkit-slider-thumb {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 0.75em;
+  height: 1.75em;
+  border-radius: 0;
+  border: 0;
+  cursor: pointer;
+}
+.modern input[type=range]::-moz-range-thumb {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 0.75em;
+  height: 1.75em;
+  border-radius: 0;
+  border: 0;
+  cursor: pointer;
+}
+.modern input[type=range]::-ms-thumb {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 0.75em;
+  height: 1.75em;
+  border-radius: 0;
+  border: 0;
+  cursor: pointer;
+}
+.modern input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  margin-top: -0.75em;
 }
 .modern input[type=checkbox],
 .modern input[type=radio] {
@@ -424,6 +489,7 @@
 }
 .modern input,
 .modern textarea,
+.modern select,
 .modern button[type=reset] {
   background-color: inherit;
   color: inherit;
@@ -462,6 +528,24 @@
 }
 .modern input[type=submit]:enabled:focus {
   outline-color: #444444;
+}
+.modern input[type=range]::-webkit-slider-runnable-track {
+  border-color: #d0d0d0;
+}
+.modern input[type=range]::-moz-range-track {
+  border-color: #d0d0d0;
+}
+.modern input[type=range]::-ms-track {
+  border-color: #d0d0d0;
+}
+.modern input[type=range]::-webkit-slider-thumb {
+  background-color: #444444;
+}
+.modern input[type=range]::-moz-range-thumb {
+  background-color: #444444;
+}
+.modern input[type=range]::-ms-thumb {
+  background-color: #444444;
 }
 .modern input[type=checkbox] + label > .check,
 .modern input[type=radio] + label > .check {
@@ -502,9 +586,6 @@
   border-color: #b7b7b7;
 }
 .modern select {
-  border-color: #d0d0d0;
-  background-color: #f0f0f0;
-  color: #444444;
   background-image: linear-gradient(45deg, transparent 50%, #444444 50%, #444444 75%, transparent 75%), linear-gradient(135deg, transparent 25%, #444444 25%, #444444 50%, transparent 50%);
 }
 .modern select:enabled:hover {

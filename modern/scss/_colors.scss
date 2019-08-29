@@ -1,3 +1,5 @@
+@import "macros";
+
 $class: "default" !default;
 $primary: #f0f0f0 !default;
 $primary-alt: #d0d0d0 !default;
@@ -75,7 +77,8 @@ $active: lighten($secondary, 20%) !default;
 
       input,
       textarea,
-      button[type="reset"] {
+      select,
+      button[type=reset] {
         background-color: inherit;
         color: inherit;
         border-color: $primary-alt;
@@ -83,16 +86,16 @@ $active: lighten($secondary, 20%) !default;
       }
         
       button,
-      input[type="button"],
-      input[type="submit"] {
+      input[type=button],
+      input[type=submit] {
         background-color: $primary-alt;
         color: $on-primary;
       }
         
       button,
-      input[type="button"],
-      input[type="submit"],
-      input[type="reset"] {
+      input[type=button],
+      input[type=submit],
+      input[type=reset] {
         &:enabled {
           &:hover {
             background-color: $hover;
@@ -105,7 +108,7 @@ $active: lighten($secondary, 20%) !default;
         }
       }
     
-      input[type="submit"]:enabled {
+      input[type=submit]:enabled {
         @include secondary-colors;
     
         &:hover {
@@ -120,9 +123,19 @@ $active: lighten($secondary, 20%) !default;
           outline-color: $secondary;
         }
       }
+
+      input[type=range] {
+        @include range-track {
+          border-color: $primary-alt;
+        }
+
+        @include range-thumb {
+          background-color: $secondary;
+        }
+      }
     
-      input[type="checkbox"],
-      input[type="radio"] {
+      input[type=checkbox],
+      input[type=radio] {
         & + label > .check {
           background-color: inherit;
           border-color: $primary-alt;
@@ -155,7 +168,7 @@ $active: lighten($secondary, 20%) !default;
         }
       }
     
-      input[type="checkbox"]:indeterminate {
+      input[type=checkbox]:indeterminate {
         &  + label > .check {
           background-color: $secondary;
         }
@@ -173,9 +186,6 @@ $active: lighten($secondary, 20%) !default;
       }
         
       select {
-        border-color: $primary-alt;
-        background-color: $primary;
-        color: $on-primary;
         @include chevron-down($on-primary);
         
         &:enabled {

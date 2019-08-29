@@ -1,4 +1,5 @@
 ﻿@import "defs";
+@import "macros";
 @import "classes";
 @import "colors";
 
@@ -115,7 +116,7 @@
   input,
   textarea,
   select,
-  input[type="reset"] {
+  input[type=reset] {
     @include control-size($textbox-padding);
     @include border;
 
@@ -125,19 +126,15 @@
       opacity: 0.7;
     }
 
-    // prefix selectors must be separate rulesets
-    &:-moz-read-only {
-      background-color: transparent;
-    }
-    &:read-only {
+    @include read-only {
       background-color: transparent;
     }
   }
   
   button,
-  input[type="button"],
-  input[type="submit"],
-  input[type="reset"] {
+  input[type=button],
+  input[type=submit],
+  input[type=reset] {
     @include control-size($button-padding);
     
     &:enabled {
@@ -150,19 +147,44 @@
   }
 
   button, input {
-    &[type="button"],
-    &[type="submit"] {
+    &[type=button],
+    &[type=submit] {
       border: 0;
       font-weight: 600;
     }
   }
 
-  input[type="range"] {
+  input[type=range] {
     vertical-align: top;
+    border: 0;
+
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    background: transparent;
+    
+    @include range-track {
+      @include border-box;
+      height: 0.25em;
+      @include border;
+      @include control-pointer;
+    }
+
+    @include range-thumb {
+      @include border-box;
+      width: 0.75em;
+      height: $control-height;
+      border-radius: 0;
+      border: 0;
+      @include control-pointer;
+    }
+    
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      margin-top: -($control-height - 0.25em) / 2;
+    }
   }
 
-  input[type="checkbox"],
-  input[type="radio"] {
+  input[type=checkbox],
+  input[type=radio] {
     @include invisible;
 
     & + label {
@@ -226,7 +248,7 @@
     }
   }
 
-  input[type="checkbox"] {
+  input[type=checkbox] {
     &:indeterminate + label > .check {
       &.small {
         border-width: 0.3em $control-border;
@@ -242,7 +264,7 @@
     }
   }
 
-  input[type="radio"] {
+  input[type=radio] {
     & + label {
       & > .check.small {
         border-radius: 0.375em;
