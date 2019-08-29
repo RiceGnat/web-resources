@@ -18,6 +18,11 @@ $outline-weight: 2;
   box-sizing: border-box;
 }
 
+@mixin border {
+  border-width: $control-border;
+  border-style: solid;
+}
+
 @mixin control-size($padding-x) {
   @include border-box;
   height: $control-height;
@@ -44,19 +49,19 @@ $outline-weight: 2;
 
 // to hide input controls while still allowing tab focus
 @mixin invisible {
-  position: absolute;
-  width: 0;
-  height: 0;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  opacity: 0;
-  z-index: -1;
+  position: absolute !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  outline: 0 !important;
+  opacity: 0 !important;
+  z-index: -1 !important;
 }
 
 @mixin standard-transition($props...) {
   transition-property: $props;
-  transition-timing-function: linear;
+  transition-timing-function: ease-out;
   transition-duration: $fade-out;
 }

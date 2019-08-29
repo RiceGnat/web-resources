@@ -31,7 +31,16 @@
     }
 
     .container {
-      max-width: 750px;
+    }
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -0.5em;
+    }
+
+    form > div {
+      margin: 0 0.5em;
     }
 
     .row {
@@ -43,7 +52,8 @@
     }
 
     :focus,
-    :focus + label {
+    :focus + label,
+    :focus + label > .check {
       outline: 0 !important;
     }
   </style>
@@ -66,6 +76,10 @@
       $("#toggleIndeterminate").on("click", function (e) {
         $(".controls input[type=checkbox]").prop('indeterminate', function (i, v) { return !v; });
       });
+
+      $("form").on("submit", function (e) {
+        e.preventDefault();
+      })
     });
   </script>
 </head>
@@ -74,63 +88,84 @@
   <div class="main">
     <div class="container">
       <h1>Modern</h1>
-      <h2>Visual Style</h2>
-      <h3>Inspired by Metro</h3>
-      <h4>Minimal Design Language</h4>
-      <h5>Create smooth and lightweight web interfaces</h5>
-      <h6>Monochrome theme <span class="tip">modern.css</span></h6>
+      <h2>Minimalist visual style</h2>
+      <h3></h3>
+      <h4>Inspired by Metro Design Language</h4>
+      <h5></h5>
+      <h6>Default monochrome theme <span class="tip">modern.css</span></h6>
       <ul>
         <li>Designed for use with Segoe UI</li>
         <li>Pure CSS transitions for performance</li>
         <li>Download files and see markup examples on <a href="https://github.com/RiceGnat/web-resources/tree/master/modern">GitHub</a></li>
       </ul>
       <div class="row">
-        <fieldset class="controls">
-          <legend>Controls</legend>
+        <form>
           <div class="row">
-            <input type="text" placeholder="Textbox" />
-            <select>
-              <option>
-                Select
-              </option>
-              <option>
-                Option 1
-              </option>
-              <option>
-                Option 2
-              </option>
-            </select>&ensp;
-            <input type="submit" class="primary" />
-            <input type="button" value="Cancel" />
+            <fieldset class="controls">
+              <legend>Standard form controls</legend>
+              <div class="row">
+                <input type="text" placeholder="Textbox" />
+                <select>
+                  <option>
+                    Select
+                  </option>
+                  <option>
+                    Option 1
+                  </option>
+                  <option>
+                    Option 2
+                  </option>
+                </select>
+              </div>
+              <div class="row">
+                <input type="checkbox" id="check1" />
+                <label for="check1"><span class="check small"></span>Small checkbox</label>&emsp;
+                <input type="checkbox" id="check2" />
+                <label for="check2"><span class="check medium"></span>Medium checkbox</label>&emsp;
+                <input type="checkbox" id="check3" />
+                <label for="check3"><span class="check large"></span>Large checkbox</label>
+              </div>
+              <div class="row">
+                <input type="radio" id="radio1" name="radio" />
+                <label for="radio1"><span class="check small"></span>Small radio button</label>&emsp;
+                <input type="radio" id="radio2" name="radio" />
+                <label for="radio2"><span class="check medium"></span>Medium radio button</label>&emsp;
+                <input type="radio" id="radio3" name="radio" />
+                <label for="radio3"><span class="check large"></span>Large radio button</label>
+              </div>
+              <div class="row">
+                <input type="submit" value="Submit" />
+                <input type="button" value="Cancel" />
+                <input type="reset" value="Reset" />&emsp;
+                <input type="button" id="toggleIndeterminate" value="Indeterminate" />
+              </div>
+            </fieldset>
           </div>
           <div class="row">
-            <input type="checkbox" id="check1" />
-            <label for="check1"><span class="check small"></span>Small checkbox</label>&emsp;
-            <input type="checkbox" id="check2" />
-            <label for="check2"><span class="check medium"></span>Medium checkbox</label>&emsp;
-            <input type="checkbox" id="check3" />
-            <label for="check3"><span class="check large"></span>Large checkbox</label>&emsp;
-            <input type="button" id="toggleIndeterminate" value="Indeterminate" />
+            <fieldset>
+              <legend>HTML5 input controls</legend>
+              <div class="row">
+                <input type="number" placeholder="Number" />
+                <input type="range" placeholder="Number" />
+              </div>
+            </fieldset>
           </div>
           <div class="row">
-            <input type="radio" id="radio1" name="radio" />
-            <label for="radio1"><span class="check small"></span>Small radio button</label>&emsp;
-            <input type="radio" id="radio2" name="radio" />
-            <label for="radio2"><span class="check medium"></span>Medium radio button</label>&emsp;
-            <input type="radio" id="radio3" name="radio" />
-            <label for="radio3"><span class="check large"></span>Large radio button</label>
+            <fieldset>
+              <legend>Custom control classes</legend>
+              <div class="row">
+                <div class="segmented-radio-group inline">
+                  <input type="radio" id="segmentedRadio1" name="segmentedRadio" />
+                  <label for="segmentedRadio1">Segmented</label>
+                  <input type="radio" id="segmentedRadio2" name="segmentedRadio" />
+                  <label for="segmentedRadio2">Radio</label>
+                  <input type="radio" id="segmentedRadio3" name="segmentedRadio" />
+                  <label for="segmentedRadio3">Group</label>
+                </div>
+              </div>
+            </fieldset>
           </div>
-          <div class="row">
-            <div class="segmented-radio-group inline">
-              <input type="radio" id="segmentedRadio1" name="segmentedRadio" />
-              <label for="segmentedRadio1">Segmented</label>
-              <input type="radio" id="segmentedRadio2" name="segmentedRadio" />
-              <label for="segmentedRadio2">Radio</label>
-              <input type="radio" id="segmentedRadio3" name="segmentedRadio" />
-              <label for="segmentedRadio3">Group</label>
-            </div>
-          </div>
-        </fieldset>
+        </form>
       </div>
       <div class="row">
         <button type="button" id="toggleDisabled">Disable controls</button>

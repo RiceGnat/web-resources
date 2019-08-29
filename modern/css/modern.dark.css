@@ -22,6 +22,16 @@
 .modern .dark a:active, .modern.dark a:active {
   color: #9d9d9d;
 }
+.modern .dark input,
+.modern .dark textarea,
+.modern .dark button[type=reset], .modern.dark input,
+.modern.dark textarea,
+.modern.dark button[type=reset] {
+  background-color: inherit;
+  color: inherit;
+  border-color: #222222;
+  caret-color: #d0d0d0;
+}
 .modern .dark button,
 .modern .dark input[type=button],
 .modern .dark input[type=submit], .modern.dark button,
@@ -32,16 +42,21 @@
 }
 .modern .dark button:enabled:hover,
 .modern .dark input[type=button]:enabled:hover,
-.modern .dark input[type=submit]:enabled:hover, .modern.dark button:enabled:hover,
+.modern .dark input[type=submit]:enabled:hover,
+.modern .dark input[type=reset]:enabled:hover, .modern.dark button:enabled:hover,
 .modern.dark input[type=button]:enabled:hover,
-.modern.dark input[type=submit]:enabled:hover {
+.modern.dark input[type=submit]:enabled:hover,
+.modern.dark input[type=reset]:enabled:hover {
   background-color: #6f6f6f;
+  border-color: #6f6f6f;
 }
 .modern .dark button:enabled:active,
 .modern .dark input[type=button]:enabled:active,
-.modern .dark input[type=submit]:enabled:active, .modern.dark button:enabled:active,
+.modern .dark input[type=submit]:enabled:active,
+.modern .dark input[type=reset]:enabled:active, .modern.dark button:enabled:active,
 .modern.dark input[type=button]:enabled:active,
-.modern.dark input[type=submit]:enabled:active {
+.modern.dark input[type=submit]:enabled:active,
+.modern.dark input[type=reset]:enabled:active {
   background-color: #9d9d9d;
 }
 .modern .dark input[type=submit]:enabled, .modern.dark input[type=submit]:enabled {
@@ -57,14 +72,6 @@
 }
 .modern .dark input[type=submit]:enabled:focus, .modern.dark input[type=submit]:enabled:focus {
   outline-color: #d0d0d0;
-}
-.modern .dark input[type=text],
-.modern .dark textarea, .modern.dark input[type=text],
-.modern.dark textarea {
-  background-color: inherit;
-  color: inherit;
-  border-color: #222222;
-  caret-color: #d0d0d0;
 }
 .modern .dark input[type=checkbox] + label > .check,
 .modern .dark input[type=radio] + label > .check, .modern.dark input[type=checkbox] + label > .check,

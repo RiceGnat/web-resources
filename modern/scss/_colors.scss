@@ -72,16 +72,31 @@ $active: lighten($secondary, 20%) !default;
           color: $active;
         }
       }
+
+      input,
+      textarea,
+      button[type="reset"] {
+        background-color: inherit;
+        color: inherit;
+        border-color: $primary-alt;
+        caret-color: $secondary;
+      }
         
       button,
       input[type="button"],
       input[type="submit"] {
         background-color: $primary-alt;
         color: $on-primary;
-    
+      }
+        
+      button,
+      input[type="button"],
+      input[type="submit"],
+      input[type="reset"] {
         &:enabled {
           &:hover {
             background-color: $hover;
+            border-color: $hover;
           }
       
           &:active {
@@ -104,14 +119,6 @@ $active: lighten($secondary, 20%) !default;
         &:focus {
           outline-color: $secondary;
         }
-      }
-    
-      input[type="text"],
-      textarea {
-        background-color: inherit;
-        color: inherit;
-        border-color: $primary-alt;
-        caret-color: $secondary;
       }
     
       input[type="checkbox"],

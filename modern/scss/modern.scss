@@ -76,9 +76,7 @@
     }
   }
 
-  a {
-    font-weight: 600;
-
+  :enabled {
     &:hover {
       transition-duration: $fade-in;
     }
@@ -86,6 +84,14 @@
     &:active {
       transition-duration: 0ms;
     }
+
+    &:focus {
+      @include outline-outer;
+    }
+  }
+
+  a {
+    font-weight: 600;
   }
 
   label {
@@ -93,54 +99,25 @@
   }
 
   button,
-  input[type="button"],
-  input[type="submit"] {
-    @include control-size($button-padding);
-    border: 0;
+  input,
+  textarea,
+  select {
     margin: $control-margin 0;
     font-family: inherit;
     font-size: inherit;
-    font-weight: 600;
-    transition-timing-function: ease-out;
-
-    &:enabled {
-      @include control-pointer;
-
-      &:hover {
-        transition-duration: $fade-in;
-      }
-  
-      &:active {
-        transition-duration: 0ms;
-        @include active-transform;
-      }
-
-      &:focus {
-        @include outline-outer;
-      }
-    }
-
+    font-weight: inherit;
+    
     &:disabled {
       opacity: $disabled-opacity;
     }
   }
 
-  input[type="submit"] {
-    font-weight: 600;
-  }
-
-  *::-moz-focus-inner {
-    border: 0;
-  }
-
-  input[type="text"],
-  textarea {
+  input,
+  textarea,
+  select,
+  input[type="reset"] {
     @include control-size($textbox-padding);
-    border: $control-border solid;
-    margin: $control-margin 0;
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
+    @include border;
 
     &::placeholder {
       font-style: italic;
@@ -155,14 +132,33 @@
     &:read-only {
       background-color: transparent;
     }
-
-    &:enabled:focus {
-      @include outline-outer;
-    }
+  }
+  
+  button,
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"] {
+    @include control-size($button-padding);
     
-    &:disabled {
-      opacity: $disabled-opacity;
+    &:enabled {
+      @include control-pointer;
+
+      &:active {
+        @include active-transform;
+      }
     }
+  }
+
+  button, input {
+    &[type="button"],
+    &[type="submit"] {
+      border: 0;
+      font-weight: 600;
+    }
+  }
+
+  input[type="range"] {
+    vertical-align: top;
   }
 
   input[type="checkbox"],
@@ -177,8 +173,7 @@
         position: relative;
         @include border-box;
         margin: 0 0.5em;
-        
-        border: $control-border solid;
+        @include border;
 
         &.small {
           width: 0.75em;
@@ -226,7 +221,7 @@
       }
     }
 
-    &:disabled + label > .check {
+    &:disabled + label {
       opacity: $disabled-opacity;
     }
   }
@@ -246,6 +241,7 @@
       }
     }
   }
+
   input[type="radio"] {
     & + label {
       & > .check.small {
@@ -264,12 +260,7 @@
   }
 
   select {
-    @include control-size($textbox-padding);
     padding-right: 2em;
-    border-width: $control-border;
-    border-style: solid;
-    font-family: inherit;
-    font-size: inherit;
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
@@ -280,18 +271,6 @@
       0.5em 0.5em,
       0.5em 0.5em;
     background-repeat: no-repeat;
-
-    &:enabled {
-      @include control-pointer;
-
-      &:focus {
-        @include outline-outer;
-      }
-    }
-    
-    &:disabled {
-      opacity: $disabled-opacity;
-    }
   }
 
   fieldset {
@@ -300,6 +279,8 @@
     padding: 0.5em 1em;
 
     legend {
+      position: relative;
+      bottom: 0.125em;
       padding: 0 0.5em;
       font-size: 120%;
       font-weight: 300;

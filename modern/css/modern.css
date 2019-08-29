@@ -32,7 +32,7 @@
 }
 .modern * {
   transition-property: background-color, color, opacity, border, transform;
-  transition-timing-function: linear;
+  transition-timing-function: ease-out;
   transition-duration: 100ms;
 }
 .modern b {
@@ -84,116 +84,112 @@
   top: 0.5em;
   left: -1em;
   transition-property: background-color;
-  transition-timing-function: linear;
+  transition-timing-function: ease-out;
   transition-duration: 100ms;
+}
+.modern :enabled:hover {
+  transition-duration: 50ms;
+}
+.modern :enabled:active {
+  transition-duration: 0ms;
+}
+.modern :enabled:focus {
+  outline: 0.125em solid;
+  outline-offset: 0.0625em;
 }
 .modern a {
   font-weight: 600;
-}
-.modern a:hover {
-  transition-duration: 50ms;
-}
-.modern a:active {
-  transition-duration: 0ms;
 }
 .modern label {
   white-space: nowrap;
 }
 .modern button,
-.modern input[type=button],
-.modern input[type=submit] {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  height: 1.75em;
-  padding: 0 1.5em;
-  border: 0;
-  margin: 0.125em 0;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: 600;
-  transition-timing-function: ease-out;
-}
-.modern button:enabled,
-.modern input[type=button]:enabled,
-.modern input[type=submit]:enabled {
-  cursor: pointer;
-}
-.modern button:enabled:hover,
-.modern input[type=button]:enabled:hover,
-.modern input[type=submit]:enabled:hover {
-  transition-duration: 50ms;
-}
-.modern button:enabled:active,
-.modern input[type=button]:enabled:active,
-.modern input[type=submit]:enabled:active {
-  transition-duration: 0ms;
-  transform: scale(0.98);
-}
-.modern button:enabled:focus,
-.modern input[type=button]:enabled:focus,
-.modern input[type=submit]:enabled:focus {
-  outline: 0.125em solid;
-  outline-offset: 0.0625em;
-}
-.modern button:disabled,
-.modern input[type=button]:disabled,
-.modern input[type=submit]:disabled {
-  opacity: 0.5;
-}
-.modern input[type=submit] {
-  font-weight: 600;
-}
-.modern *::-moz-focus-inner {
-  border: 0;
-}
-.modern input[type=text],
-.modern textarea {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  height: 1.75em;
-  padding: 0 0.5em;
-  border: 0.0625em solid;
+.modern input,
+.modern textarea,
+.modern select {
   margin: 0.125em 0;
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
 }
-.modern input[type=text]::placeholder,
-.modern textarea::placeholder {
+.modern button:disabled,
+.modern input:disabled,
+.modern textarea:disabled,
+.modern select:disabled {
+  opacity: 0.5;
+}
+.modern input,
+.modern textarea,
+.modern select,
+.modern input[type=reset] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 1.75em;
+  padding: 0 0.5em;
+  border-width: 0.0625em;
+  border-style: solid;
+}
+.modern input::placeholder,
+.modern textarea::placeholder,
+.modern select::placeholder,
+.modern input[type=reset]::placeholder {
   font-style: italic;
   color: inherit;
   opacity: 0.7;
 }
-.modern input[type=text]:-moz-read-only,
-.modern textarea:-moz-read-only {
+.modern input:-moz-read-only,
+.modern textarea:-moz-read-only,
+.modern select:-moz-read-only,
+.modern input[type=reset]:-moz-read-only {
   background-color: transparent;
 }
-.modern input[type=text]:read-only,
-.modern textarea:read-only {
+.modern input:read-only,
+.modern textarea:read-only,
+.modern select:read-only,
+.modern input[type=reset]:read-only {
   background-color: transparent;
 }
-.modern input[type=text]:enabled:focus,
-.modern textarea:enabled:focus {
-  outline: 0.125em solid;
-  outline-offset: 0.0625em;
+.modern button,
+.modern input[type=button],
+.modern input[type=submit],
+.modern input[type=reset] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 1.75em;
+  padding: 0 1.5em;
 }
-.modern input[type=text]:disabled,
-.modern textarea:disabled {
-  opacity: 0.5;
+.modern button:enabled,
+.modern input[type=button]:enabled,
+.modern input[type=submit]:enabled,
+.modern input[type=reset]:enabled {
+  cursor: pointer;
+}
+.modern button:enabled:active,
+.modern input[type=button]:enabled:active,
+.modern input[type=submit]:enabled:active,
+.modern input[type=reset]:enabled:active {
+  transform: scale(0.98);
+}
+.modern button[type=button], .modern button[type=submit], .modern input[type=button], .modern input[type=submit] {
+  border: 0;
+  font-weight: 600;
+}
+.modern input[type=range] {
+  vertical-align: top;
 }
 .modern input[type=checkbox],
 .modern input[type=radio] {
-  position: absolute;
-  width: 0;
-  height: 0;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  opacity: 0;
-  z-index: -1;
+  position: absolute !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  outline: 0 !important;
+  opacity: 0 !important;
+  z-index: -1 !important;
 }
 .modern input[type=checkbox] + label,
 .modern input[type=radio] + label {
@@ -207,7 +203,8 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0 0.5em;
-  border: 0.0625em solid;
+  border-width: 0.0625em;
+  border-style: solid;
 }
 .modern input[type=checkbox] + label > .check.small,
 .modern input[type=radio] + label > .check.small {
@@ -253,8 +250,8 @@
   outline: 0.125em solid;
   outline-offset: 0.0625em;
 }
-.modern input[type=checkbox]:disabled + label > .check,
-.modern input[type=radio]:disabled + label > .check {
+.modern input[type=checkbox]:disabled + label,
+.modern input[type=radio]:disabled + label {
   opacity: 0.5;
 }
 .modern input[type=checkbox]:indeterminate + label > .check.small {
@@ -276,16 +273,7 @@
   border-radius: 0.625em;
 }
 .modern select {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  height: 1.75em;
-  padding: 0 0.5em;
   padding-right: 2em;
-  border-width: 0.0625em;
-  border-style: solid;
-  font-family: inherit;
-  font-size: inherit;
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -293,22 +281,14 @@
   background-size: 0.5em 0.5em, 0.5em 0.5em;
   background-repeat: no-repeat;
 }
-.modern select:enabled {
-  cursor: pointer;
-}
-.modern select:enabled:focus {
-  outline: 0.125em solid;
-  outline-offset: 0.0625em;
-}
-.modern select:disabled {
-  opacity: 0.5;
-}
 .modern fieldset {
   border-width: 0.0625em;
   margin: 0;
   padding: 0.5em 1em;
 }
 .modern fieldset legend {
+  position: relative;
+  bottom: 0.125em;
   padding: 0 0.5em;
   font-size: 120%;
   font-weight: 300;
@@ -442,6 +422,14 @@
 .modern a:active {
   color: #777777;
 }
+.modern input,
+.modern textarea,
+.modern button[type=reset] {
+  background-color: inherit;
+  color: inherit;
+  border-color: #d0d0d0;
+  caret-color: #444444;
+}
 .modern button,
 .modern input[type=button],
 .modern input[type=submit] {
@@ -450,12 +438,15 @@
 }
 .modern button:enabled:hover,
 .modern input[type=button]:enabled:hover,
-.modern input[type=submit]:enabled:hover {
+.modern input[type=submit]:enabled:hover,
+.modern input[type=reset]:enabled:hover {
   background-color: #b7b7b7;
+  border-color: #b7b7b7;
 }
 .modern button:enabled:active,
 .modern input[type=button]:enabled:active,
-.modern input[type=submit]:enabled:active {
+.modern input[type=submit]:enabled:active,
+.modern input[type=reset]:enabled:active {
   background-color: #777777;
 }
 .modern input[type=submit]:enabled {
@@ -471,13 +462,6 @@
 }
 .modern input[type=submit]:enabled:focus {
   outline-color: #444444;
-}
-.modern input[type=text],
-.modern textarea {
-  background-color: inherit;
-  color: inherit;
-  border-color: #d0d0d0;
-  caret-color: #444444;
 }
 .modern input[type=checkbox] + label > .check,
 .modern input[type=radio] + label > .check {
