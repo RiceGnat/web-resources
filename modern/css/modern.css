@@ -70,22 +70,7 @@
   padding: 0 0 0 2em;
 }
 .modern ul {
-  list-style: none;
-}
-.modern ul li {
-  position: relative;
-}
-.modern ul li::before {
-  content: "";
-  display: block;
-  width: 0.5em;
-  height: 0.5em;
-  position: absolute;
-  top: 0.5em;
-  left: -1em;
-  transition-property: background-color;
-  transition-timing-function: ease-out;
-  transition-duration: 100ms;
+  list-style: square;
 }
 .modern :enabled:hover {
   transition-duration: 50ms;
@@ -474,9 +459,6 @@
 .modern ::selection {
   background-color: rgba(68, 68, 68, 0.997);
   color: #ffffff;
-}
-.modern ul li::before {
-  background-color: #444444;
 }
 .modern a {
   color: #444444;

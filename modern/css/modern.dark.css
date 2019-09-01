@@ -10,9 +10,6 @@
   background-color: rgba(208, 208, 208, 0.997);
   color: #222222;
 }
-.modern .dark ul li::before, .modern.dark ul li::before {
-  background-color: #d0d0d0;
-}
 .modern .dark a, .modern.dark a {
   color: #d0d0d0;
 }

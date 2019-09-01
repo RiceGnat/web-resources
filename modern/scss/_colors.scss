@@ -58,11 +58,7 @@ $active: lighten($secondary, 20%) !default;
         background-color: rgba($secondary, 0.997);
         color: $on-secondary;
       }
-    
-      ul li::before {
-        background-color: $on-primary;
-      }
-    
+      
       a {
         color: $secondary;
     

@@ -59,22 +59,7 @@
   }
 
   ul {
-    list-style: none;
-
-    li {
-      position: relative;
-
-      &::before {
-        content: '';
-        display: block;
-        width: 0.5em;
-        height: 0.5em;
-        position: absolute;
-        top: 0.5em;
-        left: -1em;
-        @include standard-transition(background-color);
-      }
-    }
+    list-style: square;
   }
 
   :enabled {
