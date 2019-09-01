@@ -179,7 +179,7 @@
     
     &::-webkit-slider-thumb {
       -webkit-appearance: none;
-      margin-top: -($control-height - 0.25em) / 2;
+      margin-top: -($control-height - 0.25em) / 2 + $control-border;
     }
   }
 

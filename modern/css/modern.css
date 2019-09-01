@@ -242,7 +242,7 @@
 }
 .modern input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  margin-top: -0.75em;
+  margin-top: -0.6875em;
 }
 .modern input[type=checkbox],
 .modern input[type=radio] {
