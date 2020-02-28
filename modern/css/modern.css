@@ -78,9 +78,12 @@
 .modern :enabled:active {
   transition-duration: 0ms;
 }
-.modern :enabled:focus:not(.no-outline) {
+.modern :enabled:focus {
   outline: 0.125em solid;
   outline-offset: 0.0625em;
+}
+.modern :enabled:focus.no-outline {
+  outline: 0;
 }
 .modern a {
   font-weight: 600;
@@ -295,10 +298,14 @@
 .modern input[type=radio]:enabled:active + label > .check {
   transition-duration: 0ms;
 }
-.modern input[type=checkbox]:enabled:focus:not(.no-outline) + label > .check,
-.modern input[type=radio]:enabled:focus:not(.no-outline) + label > .check {
+.modern input[type=checkbox]:enabled:focus + label > .check,
+.modern input[type=radio]:enabled:focus + label > .check {
   outline: 0.125em solid;
   outline-offset: 0.0625em;
+}
+.modern input[type=checkbox]:enabled:focus + label > .check.no-outline,
+.modern input[type=radio]:enabled:focus + label > .check.no-outline {
+  outline: 0;
 }
 .modern input[type=checkbox]:disabled + label,
 .modern input[type=radio]:disabled + label {

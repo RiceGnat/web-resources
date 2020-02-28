@@ -71,8 +71,12 @@
       transition-duration: 0ms;
     }
 
-    &:focus:not(.no-outline) {
+    &:focus {
       @include outline-outer;
+      
+      &.no-outline {
+        outline: 0;
+      }
     }
   }
 
@@ -223,8 +227,12 @@
         transition-duration: 0ms;
       }
 
-      &:focus:not(.no-outline) + label > .check {
+      &:focus + label > .check {
         @include outline-outer;
+        
+        &.no-outline {
+          outline: 0;
+        }
       }
     }
 
