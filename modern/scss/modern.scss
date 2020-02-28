@@ -229,7 +229,7 @@
 
       &:focus + label > .check {
         @include outline-outer;
-        
+
         &.no-outline {
           outline: 0;
         }
@@ -291,7 +291,7 @@
   fieldset {
     border-width: $control-border;
     margin: 0;
-    padding: 0.5em 1em;
+    padding: 0.5em 1em 1em;
 
     legend {
       position: relative;
