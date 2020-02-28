@@ -386,7 +386,7 @@
 .modern .segmented-radio-group input:disabled + label {
   opacity: 0.5;
 }
-.modern input[type=button].link-button {
+.modern button.link-button, .modern input.link-button {
   padding-right: 0;
   padding-left: 0;
 }
@@ -612,15 +612,15 @@
 .modern .segmented-radio-group input:enabled:focus + label {
   outline-color: #444444;
 }
-.modern input[type=button].link-button {
+.modern button.link-button, .modern input.link-button {
   background: none;
   color: #444444;
 }
-.modern input[type=button].link-button:hover {
+.modern button.link-button:hover, .modern input.link-button:hover {
   background: none;
   color: #b7b7b7;
 }
-.modern input[type=button].link-button:active {
+.modern button.link-button:active, .modern input.link-button:active {
   background: none;
   color: #777777;
 }

@@ -61,9 +61,11 @@
     }
   }
 
-  input[type=button].link-button {
-    padding-right: 0;
-    padding-left: 0;
+  button, input {
+    &.link-button {
+      padding-right: 0;
+      padding-left: 0;
+    } 
   }
 
   .tile-container {

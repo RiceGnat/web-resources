@@ -175,15 +175,15 @@
 .modern .dark .segmented-radio-group input:enabled:focus + label, .modern.dark .segmented-radio-group input:enabled:focus + label {
   outline-color: #d0d0d0;
 }
-.modern .dark input[type=button].link-button, .modern.dark input[type=button].link-button {
+.modern .dark button.link-button, .modern .dark input.link-button, .modern.dark button.link-button, .modern.dark input.link-button {
   background: none;
   color: #d0d0d0;
 }
-.modern .dark input[type=button].link-button:hover, .modern.dark input[type=button].link-button:hover {
+.modern .dark button.link-button:hover, .modern .dark input.link-button:hover, .modern.dark button.link-button:hover, .modern.dark input.link-button:hover {
   background: none;
   color: #6f6f6f;
 }
-.modern .dark input[type=button].link-button:active, .modern.dark input[type=button].link-button:active {
+.modern .dark button.link-button:active, .modern .dark input.link-button:active, .modern.dark button.link-button:active, .modern.dark input.link-button:active {
   background: none;
   color: #9d9d9d;
 }

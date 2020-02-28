@@ -241,18 +241,20 @@ $active: lighten($secondary, 20%) !default;
         }
       }
 
-      input[type=button].link-button {
-        background: none;
-        color: $secondary;
-    
-        &:hover {
+      button, input {
+        &.link-button {
           background: none;
-          color: $hover;
-        }
-    
-        &:active {
-          background: none;
-          color: $active;
+          color: $secondary;
+      
+          &:hover {
+            background: none;
+            color: $hover;
+          }
+      
+          &:active {
+            background: none;
+            color: $active;
+          }
         }
       }
 
