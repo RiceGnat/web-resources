@@ -241,19 +241,23 @@ $active: lighten($secondary, 20%) !default;
         }
       }
 
-      button, input {
+      button,
+      input[type=button],
+      input[type=submit],
+      input[type=reset] {
+        background: none;
+
         &.link-button {
-          background: none;
-          color: $secondary;
-      
-          &:hover {
-            background: none;
-            color: $hover;
-          }
-      
-          &:active {
-            background: none;
-            color: $active;
+          &:enabled {
+            &:hover {
+              background: none;
+              color: $hover;
+            }
+        
+            &:active {
+              background: none;
+              color: $active;
+            }
           }
         }
       }

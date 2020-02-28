@@ -60,8 +60,11 @@
       }
     }
   }
-
-  button, input {
+  
+  button,
+  input[type=button],
+  input[type=submit],
+  input[type=reset] {
     &.link-button {
       padding-right: 0;
       padding-left: 0;
