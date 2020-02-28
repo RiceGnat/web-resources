@@ -245,9 +245,9 @@ $active: lighten($secondary, 20%) !default;
       input[type=button],
       input[type=submit],
       input[type=reset] {
-        background: none;
-
         &.link-button {
+          background: none;
+          
           &:enabled {
             &:hover {
               background: none;

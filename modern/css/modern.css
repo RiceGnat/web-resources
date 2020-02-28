@@ -622,10 +622,10 @@
 .modern .segmented-radio-group input:enabled:focus + label {
   outline-color: #444444;
 }
-.modern button,
-.modern input[type=button],
-.modern input[type=submit],
-.modern input[type=reset] {
+.modern button.link-button,
+.modern input[type=button].link-button,
+.modern input[type=submit].link-button,
+.modern input[type=reset].link-button {
   background: none;
 }
 .modern button.link-button:enabled:hover,

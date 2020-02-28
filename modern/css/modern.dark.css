@@ -175,13 +175,13 @@
 .modern .dark .segmented-radio-group input:enabled:focus + label, .modern.dark .segmented-radio-group input:enabled:focus + label {
   outline-color: #d0d0d0;
 }
-.modern .dark button,
-.modern .dark input[type=button],
-.modern .dark input[type=submit],
-.modern .dark input[type=reset], .modern.dark button,
-.modern.dark input[type=button],
-.modern.dark input[type=submit],
-.modern.dark input[type=reset] {
+.modern .dark button.link-button,
+.modern .dark input[type=button].link-button,
+.modern .dark input[type=submit].link-button,
+.modern .dark input[type=reset].link-button, .modern.dark button.link-button,
+.modern.dark input[type=button].link-button,
+.modern.dark input[type=submit].link-button,
+.modern.dark input[type=reset].link-button {
   background: none;
 }
 .modern .dark button.link-button:enabled:hover,
