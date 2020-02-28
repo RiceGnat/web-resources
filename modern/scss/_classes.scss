@@ -61,6 +61,11 @@
     }
   }
 
+  input[type=button].link-button {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
   .tile-container {
     display: flex;
     margin: -0.125em;

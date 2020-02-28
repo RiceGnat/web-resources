@@ -10,6 +10,17 @@ $hover: darken($primary-alt, 10%) !default;
 $hover-secondary: lighten($secondary, 10%) !default;
 $active: lighten($secondary, 20%) !default;
 
+@mixin generate-vars {
+  --primary: #{$primary};
+  --primary-alt: #{$primary-alt};
+  --secondary: #{$secondary};
+  --on-primary: #{$on-primary};
+  --on-secondary: #{$on-secondary};
+  --hover: #{$hover};
+  --hover-secondary: #{$hover-secondary};
+  --active: #{$active};
+}
+
 @mixin chevron-down($color) {
   background-image:
     linear-gradient(45deg, transparent 50%, $color 50%, $color 75%, transparent 75%),
@@ -48,6 +59,7 @@ $active: lighten($secondary, 20%) !default;
 @mixin modern-colors {
   .modern {
     @include wrap-class {
+      @include generate-vars;
       @include primary-colors;
       
       .tip {
@@ -226,6 +238,21 @@ $active: lighten($secondary, 20%) !default;
               outline-color: $secondary;
             }
           }
+        }
+      }
+
+      input[type=button].link-button {
+        background: none;
+        color: $secondary;
+    
+        &:hover {
+          background: none;
+          color: $hover;
+        }
+    
+        &:active {
+          background: none;
+          color: $active;
         }
       }
 

@@ -78,7 +78,7 @@
 .modern :enabled:active {
   transition-duration: 0ms;
 }
-.modern :enabled:focus {
+.modern :enabled:focus:not(.no-outline) {
   outline: 0.125em solid;
   outline-offset: 0.0625em;
 }
@@ -295,8 +295,8 @@
 .modern input[type=radio]:enabled:active + label > .check {
   transition-duration: 0ms;
 }
-.modern input[type=checkbox]:enabled:focus + label > .check,
-.modern input[type=radio]:enabled:focus + label > .check {
+.modern input[type=checkbox]:enabled:focus:not(.no-outline) + label > .check,
+.modern input[type=radio]:enabled:focus:not(.no-outline) + label > .check {
   outline: 0.125em solid;
   outline-offset: 0.0625em;
 }
@@ -386,6 +386,10 @@
 .modern .segmented-radio-group input:disabled + label {
   opacity: 0.5;
 }
+.modern input[type=button].link-button {
+  padding-right: 0;
+  padding-left: 0;
+}
 .modern .tile-container {
   display: flex;
   margin: -0.125em;
@@ -449,6 +453,14 @@
 }
 
 .modern {
+  --primary: #f0f0f0;
+  --primary-alt: #d0d0d0;
+  --secondary: #444444;
+  --on-primary: #444444;
+  --on-secondary: #ffffff;
+  --hover: #b7b7b7;
+  --hover-secondary: #5e5e5e;
+  --active: #777777;
   background: #f0f0f0;
   color: #444444;
   border-color: #f0f0f0;
@@ -599,6 +611,18 @@
 }
 .modern .segmented-radio-group input:enabled:focus + label {
   outline-color: #444444;
+}
+.modern input[type=button].link-button {
+  background: none;
+  color: #444444;
+}
+.modern input[type=button].link-button:hover {
+  background: none;
+  color: #b7b7b7;
+}
+.modern input[type=button].link-button:active {
+  background: none;
+  color: #777777;
 }
 .modern .secondary,
 .modern .tile {
