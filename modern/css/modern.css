@@ -8,6 +8,10 @@
   user-select: none;
 }
 
+.container {
+  position: relative;
+}
+
 .block {
   display: block;
 }
@@ -337,7 +341,7 @@
 }
 .modern fieldset {
   border-width: 0.0625em;
-  margin: 0;
+  margin: 0 0 1em 0;
   padding: 0.5em 1em;
 }
 .modern fieldset legend {
@@ -346,6 +350,21 @@
   padding: 0 0.5em;
   font-size: 120%;
   font-weight: 300;
+}
+.modern table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+.modern table th, .modern table td {
+  padding: 0.5rem 1rem;
+}
+.modern table th {
+  font-size: 120%;
+  font-weight: 300;
+  border-bottom: 0.0625em solid;
+}
+.modern table td {
+  border-top: 0.0625em solid;
 }
 .modern .tip {
   font-size: 0.8em;
@@ -582,6 +601,12 @@
   background-color: #f0f0f0;
 }
 .modern fieldset {
+  border-color: #d0d0d0;
+}
+.modern table th {
+  border-color: #444444;
+}
+.modern table td {
   border-color: #d0d0d0;
 }
 .modern .segmented-radio-group label {

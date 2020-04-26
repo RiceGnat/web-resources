@@ -147,6 +147,12 @@
 .modern .dark fieldset, .modern.dark fieldset {
   border-color: #222222;
 }
+.modern .dark table th, .modern.dark table th {
+  border-color: #d0d0d0;
+}
+.modern .dark table td, .modern.dark table td {
+  border-color: #222222;
+}
 .modern .dark .segmented-radio-group label, .modern.dark .segmented-radio-group label {
   background-color: #444444;
   border-color: #222222;

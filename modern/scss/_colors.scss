@@ -199,6 +199,16 @@ $active: lighten($secondary, 20%) !default;
       fieldset {
         border-color: $primary-alt;
       }
+
+      table {
+        th {
+          border-color: $on-primary;
+        }
+
+        td {
+          border-color: $primary-alt;
+        }
+      }
     
       .segmented-radio-group {
         label {
