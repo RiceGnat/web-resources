@@ -86,6 +86,9 @@
   outline: 0.125em solid;
   outline-offset: 0.0625em;
 }
+.modern :enabled:focus.no-outline {
+  outline: 0;
+}
 .modern a {
   font-weight: 600;
 }
@@ -308,6 +311,10 @@
   outline: 0.125em solid;
   outline-offset: 0.0625em;
 }
+.modern input[type=checkbox]:enabled:focus + label > .check.no-outline,
+.modern input[type=radio]:enabled:focus + label > .check.no-outline {
+  outline: 0;
+}
 .modern input[type=checkbox]:disabled + label,
 .modern input[type=radio]:disabled + label {
   opacity: 0.5;
@@ -342,7 +349,7 @@
 .modern fieldset {
   border-width: 0.0625em;
   margin: 0 0 1em 0;
-  padding: 0.5em 1em;
+  padding: 0.5em 1em 1em;
 }
 .modern fieldset legend {
   position: relative;
@@ -409,6 +416,13 @@
 .modern .segmented-radio-group input:disabled + label {
   opacity: 0.5;
 }
+.modern button.link-button,
+.modern input[type=button].link-button,
+.modern input[type=submit].link-button,
+.modern input[type=reset].link-button {
+  padding-right: 0;
+  padding-left: 0;
+}
 .modern .tile-container {
   display: flex;
   margin: -0.125em;
@@ -472,6 +486,14 @@
 }
 
 .modern {
+  --primary: #f0f0f0;
+  --primary-alt: #d0d0d0;
+  --secondary: #444444;
+  --on-primary: #444444;
+  --on-secondary: #ffffff;
+  --hover: #b7b7b7;
+  --hover-secondary: #5e5e5e;
+  --active: #777777;
   background: #f0f0f0;
   color: #444444;
   border-color: #f0f0f0;
@@ -628,6 +650,26 @@
 }
 .modern .segmented-radio-group input:enabled:focus + label {
   outline-color: #444444;
+}
+.modern button.link-button,
+.modern input[type=button].link-button,
+.modern input[type=submit].link-button,
+.modern input[type=reset].link-button {
+  background: none;
+}
+.modern button.link-button:enabled:hover,
+.modern input[type=button].link-button:enabled:hover,
+.modern input[type=submit].link-button:enabled:hover,
+.modern input[type=reset].link-button:enabled:hover {
+  background: none;
+  color: #b7b7b7;
+}
+.modern button.link-button:enabled:active,
+.modern input[type=button].link-button:enabled:active,
+.modern input[type=submit].link-button:enabled:active,
+.modern input[type=reset].link-button:enabled:active {
+  background: none;
+  color: #777777;
 }
 .modern .secondary,
 .modern .tile {

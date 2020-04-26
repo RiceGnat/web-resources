@@ -1,4 +1,12 @@
 .modern .dark, .modern.dark {
+  --primary: #444444;
+  --primary-alt: #222222;
+  --secondary: #d0d0d0;
+  --on-primary: #d0d0d0;
+  --on-secondary: #222222;
+  --hover: #6f6f6f;
+  --hover-secondary: #eaeaea;
+  --active: #9d9d9d;
   background: #444444;
   color: #d0d0d0;
   border-color: #444444;
@@ -172,6 +180,35 @@
 }
 .modern .dark .segmented-radio-group input:enabled:focus + label, .modern.dark .segmented-radio-group input:enabled:focus + label {
   outline-color: #d0d0d0;
+}
+.modern .dark button.link-button,
+.modern .dark input[type=button].link-button,
+.modern .dark input[type=submit].link-button,
+.modern .dark input[type=reset].link-button, .modern.dark button.link-button,
+.modern.dark input[type=button].link-button,
+.modern.dark input[type=submit].link-button,
+.modern.dark input[type=reset].link-button {
+  background: none;
+}
+.modern .dark button.link-button:enabled:hover,
+.modern .dark input[type=button].link-button:enabled:hover,
+.modern .dark input[type=submit].link-button:enabled:hover,
+.modern .dark input[type=reset].link-button:enabled:hover, .modern.dark button.link-button:enabled:hover,
+.modern.dark input[type=button].link-button:enabled:hover,
+.modern.dark input[type=submit].link-button:enabled:hover,
+.modern.dark input[type=reset].link-button:enabled:hover {
+  background: none;
+  color: #6f6f6f;
+}
+.modern .dark button.link-button:enabled:active,
+.modern .dark input[type=button].link-button:enabled:active,
+.modern .dark input[type=submit].link-button:enabled:active,
+.modern .dark input[type=reset].link-button:enabled:active, .modern.dark button.link-button:enabled:active,
+.modern.dark input[type=button].link-button:enabled:active,
+.modern.dark input[type=submit].link-button:enabled:active,
+.modern.dark input[type=reset].link-button:enabled:active {
+  background: none;
+  color: #9d9d9d;
 }
 .modern .dark .secondary,
 .modern .dark .tile, .modern.dark .secondary,
