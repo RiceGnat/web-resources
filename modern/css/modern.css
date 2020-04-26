@@ -27,6 +27,9 @@
 .flex {
   display: flex;
 }
+.flex .fill {
+  flex: 1;
+}
 
 .modern {
   font-family: "Segoe UI", sans-serif;
