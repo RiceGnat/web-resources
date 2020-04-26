@@ -115,6 +115,11 @@
       background-color: transparent;
     }
   }
+
+  textarea {
+    height: $control-height * 3;
+    vertical-align: top;
+  }
   
   button,
   input[type=button],

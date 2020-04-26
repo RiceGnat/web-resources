@@ -135,6 +135,10 @@
 .modern input[type=reset]:read-only {
   background-color: transparent;
 }
+.modern textarea {
+  height: 5.25em;
+  vertical-align: top;
+}
 .modern button,
 .modern input[type=button],
 .modern input[type=submit],
