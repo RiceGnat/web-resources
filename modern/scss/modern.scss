@@ -96,6 +96,9 @@
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
+
+    position: relative;
+    top: 0.5px;
     
     &:disabled {
       opacity: $disabled-opacity;
